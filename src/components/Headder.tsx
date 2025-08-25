@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { ModeToggle } from "./theme/ModeToggle";
 import { MenuIcon, X as XIcon } from "lucide-react";
 import Link from "next/link";
@@ -6,18 +6,19 @@ import Link from "next/link";
 type Props = {};
 
 const Headder = (props: Props) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [homeDropdown, setHomeDropdown] = useState(false);
-  const [servicesDropdown, setServicesDropdown] = useState(false);
-  const [desktopHomeDropdown, setDesktopHomeDropdown] = useState(false);
-  const [desktopServicesDropdown, setDesktopServicesDropdown] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [homeDropdown, setHomeDropdown] = React.useState(false);
+  const [servicesDropdown, setServicesDropdown] = React.useState(false);
+  const [desktopHomeDropdown, setDesktopHomeDropdown] = React.useState(false);
+  const [desktopServicesDropdown, setDesktopServicesDropdown] =
+    React.useState(false);
 
-  const homeRef = useRef<HTMLLIElement>(null);
-  const servicesRef = useRef<HTMLLIElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const homeRef = React.useRef<HTMLLIElement>(null);
+  const servicesRef = React.useRef<HTMLLIElement>(null);
+  const mobileMenuRef = React.useRef<HTMLDivElement>(null);
 
   // Close dropdowns on outside click (desktop)
-  useEffect(() => {
+  React.useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (
         desktopHomeDropdown &&

@@ -2,6 +2,7 @@ import React from "react";
 import { ModeToggle } from "./theme/ModeToggle";
 import { MenuIcon, X as XIcon } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {};
 
@@ -50,9 +51,14 @@ const Headder = (props: Props) => {
 
   return (
     <header className="  bg-white dark:bg-gray-900 sticky top-0 z-50">
-      <nav className="flex  justify-between sm:px-6 lg:px-8 px-4 h-16">
+      <nav className="flex items-center  justify-between sm:px-6 lg:px-8 px-4 h-16">
         <div className="font-bold text-2xl text-blue-900 items-center flex dark:text-blue-200">
-          LawFirmPro
+          <Image
+            src="/logo-stackly.png"
+            alt="LawFirmPro"
+            width={100}
+            height={100}
+          />
         </div>
         {/* Hamburger for mobile */}
         <button
@@ -79,7 +85,7 @@ const Headder = (props: Props) => {
               Home <span className="ml-1">▾</span>
             </button>
             <ul
-              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-20 ${
+              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-20 flex flex-col ${
                 desktopHomeDropdown
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
@@ -122,7 +128,7 @@ const Headder = (props: Props) => {
               Services <span className="ml-1">▾</span>
             </button>
             <ul
-              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-48 py-2 transition-opacity duration-150 z-20 ${
+              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-48 py-2 transition-opacity duration-150 z-20 flex flex-col ${
                 desktopServicesDropdown
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
@@ -221,15 +227,15 @@ const Headder = (props: Props) => {
               Home <span>▾</span>
             </button>
             {homeDropdown && (
-              <ul className="pl-4">
+              <ul className="pl-4 flex flex-col">
                 <Link
-                  href={"/home-1"}
+                  href={"/home1"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
                   Home 1
                 </Link>
                 <Link
-                  href={"/home-2"}
+                  href={"/home2"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
                   Home 2
@@ -260,7 +266,7 @@ const Headder = (props: Props) => {
               Services <span>▾</span>
             </button>
             {servicesDropdown && (
-              <ul className="pl-4   ">
+              <ul className="pl-4 flex flex-col">
                 <Link
                   href={"/corporate-law"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ModeToggle } from "./theme/ModeToggle";
 import { MenuIcon, X as XIcon } from "lucide-react";
+import Link from "next/link";
 
 type Props = {};
 
@@ -83,19 +84,28 @@ const Headder = (props: Props) => {
                   : "opacity-0 pointer-events-none"
               }`}
             >
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              <Link
+                href={"/home1"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Home 1
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              </Link>
+              <Link
+                href={"/home2"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Home 2
-              </li>
+              </Link>
             </ul>
           </li>
           {/* About Us */}
           <li>
-            <button className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none">
+            <Link
+              href={"/about-us"}
+              className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
+            >
               About Us
-            </button>
+            </Link>
           </li>
           {/* Services with dropdown (click only) */}
           <li className="relative" ref={servicesRef}>
@@ -117,37 +127,61 @@ const Headder = (props: Props) => {
                   : "opacity-0 pointer-events-none"
               }`}
             >
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              <Link
+                href={"/corporate-law"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Corporate Law
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              </Link>
+              <Link
+                href={"/litigation-dispute-resolution"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Litigation & Dispute Resolution
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              </Link>
+              <Link
+                href={"/intellectual-property"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Intellectual Property
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              </Link>
+              <Link
+                href={"/real-estate-law"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Real Estate Law
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              </Link>
+              <Link
+                href={"/family-law"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Family Law
-              </li>
-              <li className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100">
+              </Link>
+              <Link
+                href={"/employment-law"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
+              >
                 Employment Law
-              </li>
+              </Link>
             </ul>
           </li>
           {/* Blog */}
           <li>
-            <button className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none">
+            <Link
+              href={"/blog"}
+              className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
+            >
               Blog
-            </button>
+            </Link>
           </li>
           {/* Contact Us */}
           <li>
-            <button className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none">
+            <Link
+              href={"/contact-us"}
+              className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
+            >
               Contact Us
-            </button>
+            </Link>
           </li>
         </ul>
         <div className="flex">
@@ -167,7 +201,7 @@ const Headder = (props: Props) => {
       {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
-        className={`md:hidden bg-white dark:bg-gray-900 shadow transition-all duration-200 ${
+        className={`md:hidden absolute w-full bg-white dark:bg-gray-900 shadow transition-all duration-200 ${
           mobileMenuOpen ? "max-h-[600px] py-2" : "max-h-0 overflow-hidden py-0"
         }`}
       >
@@ -187,20 +221,29 @@ const Headder = (props: Props) => {
             </button>
             {homeDropdown && (
               <ul className="pl-4">
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+                <Link
+                  href={"/home-1"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Home 1
-                </li>
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+                </Link>
+                <Link
+                  href={"/home-2"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Home 2
-                </li>
+                </Link>
               </ul>
             )}
           </li>
           {/* About Us */}
           <li>
-            <button className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex">
+            <Link
+              href={"/about-us"}
+              className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex"
+            >
               About Us
-            </button>
+            </Link>
           </li>
           {/* Services with dropdown */}
           <li>
@@ -216,39 +259,63 @@ const Headder = (props: Props) => {
               Services <span>▾</span>
             </button>
             {servicesDropdown && (
-              <ul className="pl-4">
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+              <ul className="pl-4   ">
+                <Link
+                  href={"/corporate-law"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Corporate Law
-                </li>
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+                </Link>
+                <Link
+                  href={"/litigation-dispute-resolution"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Litigation & Dispute Resolution
-                </li>
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+                </Link>
+                <Link
+                  href={"/intellectual-property"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Intellectual Property
-                </li>
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+                </Link>
+                <Link
+                  href={"/real-estate-law"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Real Estate Law
-                </li>
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+                </Link>
+                <Link
+                  href={"/family-law"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Family Law
-                </li>
-                <li className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100">
+                </Link>
+                <Link
+                  href={"/employment-law"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
                   Employment Law
-                </li>
+                </Link>
               </ul>
             )}
           </li>
           {/* Blog */}
           <li>
-            <button className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex">
+            <Link
+              href={"/blog"}
+              className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex"
+            >
               Blog
-            </button>
+            </Link>
           </li>
           {/* Contact Us */}
           <li>
-            <button className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex">
+            <Link
+              href={"/contact-us"}
+              className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex"
+            >
               Contact Us
-            </button>
+            </Link>
           </li>
         </ul>
         {/* Mobile Theme Toggle and Profile */}

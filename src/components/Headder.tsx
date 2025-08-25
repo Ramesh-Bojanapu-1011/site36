@@ -49,14 +49,14 @@ const Headder = (props: Props) => {
   }, [desktopHomeDropdown, desktopServicesDropdown, mobileMenuOpen]);
 
   return (
-    <header className="shadow-md bg-white dark:bg-gray-900 sticky top-0 z-50">
-      <nav className="mx-auto px-4 sm:px-6 lg:px-8 flex   items-center justify-between h-16">
-        <div className="font-bold text-2xl text-blue-900 dark:text-blue-200">
+    <header className="  bg-white dark:bg-gray-900 sticky top-0 z-50">
+      <nav className="flex  justify-between h-16">
+        <div className="font-bold text-2xl text-blue-900 items-center flex dark:text-blue-200">
           LawFirmPro
         </div>
         {/* Hamburger for mobile */}
         <button
-          className="md:hidden flex focus:outline-none"
+          className="md:hidden flex justify-end items-center focus:outline-none"
           onClick={() => setMobileMenuOpen((v) => !v)}
           title={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -185,9 +185,9 @@ const Headder = (props: Props) => {
             </Link>
           </li>
         </ul>
-        <div className="flex">
+        <div className="hidden md:flex">
           {/* Theme Toggle (desktop only) */}
-          <div className="hidden md:flex  ">
+          <div className="  ">
             <ModeToggle />
           </div>
           {/* Profile Avatar (desktop only) */}

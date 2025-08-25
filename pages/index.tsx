@@ -1,6 +1,4 @@
 import Head from "next/head";
-
-import { ModeToggle } from "@/components/theme/ModeToggle";
 import Headder from "@/components/Headder";
 import Footer from "@/components/Footer";
 

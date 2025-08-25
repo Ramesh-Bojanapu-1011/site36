@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ModeToggle } from "./theme/ModeToggle";
+import { MenuIcon, X as XIcon } from "lucide-react";
 
 type Props = {};
 
@@ -53,13 +54,12 @@ const Headder = (props: Props) => {
         </div>
         {/* Hamburger for mobile */}
         <button
-          className="md:hidden    focus:outline-none  "
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
+          className="md:hidden flex focus:outline-none"
+          onClick={() => setMobileMenuOpen((v) => !v)}
+          title={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          <span className="block w-6 h-0.5 bg-blue-900 dark:bg-blue-200 mb-1"></span>
-          <span className="block w-6 h-0.5 bg-blue-900 dark:bg-blue-200 mb-1"></span>
-          <span className="block w-6 h-0.5 bg-blue-900 dark:bg-blue-200"></span>
+          {mobileMenuOpen ? <XIcon /> : <MenuIcon />}
         </button>
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center list-none m-0 p-0">

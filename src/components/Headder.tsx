@@ -50,7 +50,7 @@ const Headder = (props: Props) => {
 
   return (
     <header className="  bg-white dark:bg-gray-900 sticky top-0 z-50">
-      <nav className="flex  justify-between h-16">
+      <nav className="flex  justify-between sm:px-6 lg:px-8 px-4 h-16">
         <div className="font-bold text-2xl text-blue-900 items-center flex dark:text-blue-200">
           LawFirmPro
         </div>

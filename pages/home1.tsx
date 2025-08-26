@@ -181,7 +181,7 @@ const home1 = (props: Props) => {
             Meet Our Team
           </h2>
           {/* Modern horizontal scrollable team showcase */}
-          <div className="flex gap-8   pb-4 md:justify-center scrollbar-thin scrollbar-thumb-blue-200 dark:scrollbar-thumb-blue-900">
+          <div className="flex gap-8  flex-wrap  pb-4 md:justify-center scrollbar-thin scrollbar-thumb-blue-200 dark:scrollbar-thumb-blue-900">
             {[
               {
                 name: "Jessica Davis",
@@ -214,7 +214,7 @@ const home1 = (props: Props) => {
             ].map((member) => (
               <div
                 key={member.name}
-                className="min-w-[270px] bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border border-blue-100 dark:border-blue-900 hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                className="min-w-[270px]  md:max-w-[300px] not-md:w-full bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border border-blue-100 dark:border-blue-900 hover:scale-105 hover:shadow-2xl transition-transform duration-300"
               >
                 {member.avatar ? (
                   <img
@@ -242,28 +242,233 @@ const home1 = (props: Props) => {
         </section>
 
         {/* Section 5: Testimonials */}
-        <section className="bg-blue-50 dark:bg-gray-800 py-16 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-8">
+        <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-800 dark:via-gray-900 dark:to-blue-950 py-20 px-4 overflow-hidden">
+          <div className="absolute top-0 left-0 w-40 h-40 bg-blue-200 dark:bg-blue-900 rounded-full opacity-30 blur-2xl -z-10" />
+          <div className="absolute bottom-0 right-0 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-20 blur-3xl -z-10" />
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
               What Our Clients Say
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6">
-                <p className="italic text-gray-700 dark:text-gray-200 mb-2">
-                  "LawFirmPro guided us through a complex merger with
-                  professionalism and care."
-                </p>
-                <div className="font-semibold text-blue-800 dark:text-blue-100">
-                  — Business Client
-                </div>
-              </div>
-              <div className="bg-white dark:bg-gray-900 rounded-lg shadow p-6">
-                <p className="italic text-gray-700 dark:text-gray-200 mb-2">
-                  "Their team was always available and truly fought for my
-                  family’s best interests."
-                </p>
-                <div className="font-semibold text-blue-800 dark:text-blue-100">
-                  — Family Law Client
+            {/* Grid style testimonials */}
+            <div className="relative flex flex-col items-center">
+              <div className="w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch justify-center">
+                  {/* Testimonial 1 */}
+                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
+                    <svg
+                      className="w-10 h-10 text-blue-400 mb-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
+                      />
+                    </svg>
+                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
+                      "LawFirmPro guided us through a complex merger with
+                      professionalism and care. Their expertise made all the
+                      difference."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/client1.jpg"
+                        alt="Business Client"
+                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
+                      />
+                      <div>
+                        <div className="font-semibold text-blue-800 dark:text-blue-100">
+                          — Business Client
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                          Corporate Law
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Testimonial 2 */}
+                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
+                    <svg
+                      className="w-10 h-10 text-blue-400 mb-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
+                      />
+                    </svg>
+                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
+                      "Their team was always available and truly fought for my
+                      family’s best interests. I felt supported every step of
+                      the way."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/client2.jpg"
+                        alt="Family Law Client"
+                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
+                      />
+                      <div>
+                        <div className="font-semibold text-blue-800 dark:text-blue-100">
+                          — Family Law Client
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                          Family Law
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Testimonial 3 */}
+                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
+                    <svg
+                      className="w-10 h-10 text-blue-400 mb-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
+                      />
+                    </svg>
+                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
+                      "I was impressed by their attention to detail and clear
+                      communication. Every step was explained and handled with
+                      care."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/client3.jpg"
+                        alt="IP Client"
+                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
+                      />
+                      <div>
+                        <div className="font-semibold text-blue-800 dark:text-blue-100">
+                          — IP Client
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                          Intellectual Property
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Testimonial 4 */}
+                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
+                    <svg
+                      className="w-10 h-10 text-blue-400 mb-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
+                      />
+                    </svg>
+                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
+                      "The real estate team made my property transaction
+                      seamless and stress-free. Highly recommended for their
+                      professionalism."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/client4.jpg"
+                        alt="Real Estate Client"
+                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
+                      />
+                      <div>
+                        <div className="font-semibold text-blue-800 dark:text-blue-100">
+                          — Real Estate Client
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                          Real Estate Law
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Testimonial 5 */}
+                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
+                    <svg
+                      className="w-10 h-10 text-blue-400 mb-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
+                      />
+                    </svg>
+                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
+                      "LawFirmPro’s employment law advice helped me resolve a
+                      workplace dispute quickly and fairly. I’m grateful for
+                      their support."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/client5.jpg"
+                        alt="Employment Client"
+                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
+                      />
+                      <div>
+                        <div className="font-semibold text-blue-800 dark:text-blue-100">
+                          — Employment Client
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                          Employment Law
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Testimonial 6 */}
+                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
+                    <svg
+                      className="w-10 h-10 text-blue-400 mb-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
+                      />
+                    </svg>
+                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
+                      "From start to finish, the team was responsive and
+                      knowledgeable. I felt confident knowing my case was in
+                      good hands."
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/client6.jpg"
+                        alt="General Client"
+                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
+                      />
+                      <div>
+                        <div className="font-semibold text-blue-800 dark:text-blue-100">
+                          — General Client
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                          General Legal Services
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -271,22 +476,53 @@ const home1 = (props: Props) => {
         </section>
 
         {/* Section 6: Call to Action (CTA) */}
-        <section id="contact" className="max-w-4xl mx-auto py-16 px-4">
-          <div className="bg-blue-700 dark:bg-blue-800 rounded-lg shadow p-10 text-center flex flex-col items-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to Protect Your Interests?
+        <section
+          id="contact"
+          className="relative max-w-4xl mx-auto py-20 px-4 flex items-center justify-center"
+        >
+          {/* Decorative background shapes */}
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-200 dark:bg-blue-900 rounded-full opacity-30 blur-2xl -z-10" />
+          <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-20 blur-3xl -z-10" />
+          <div className="relative bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 dark:from-blue-800 dark:via-blue-900 dark:to-gray-900 rounded-3xl shadow-2xl p-12 text-center flex flex-col items-center border-4 border-white dark:border-blue-900">
+            <svg
+              className="w-16 h-16 mb-6 text-white opacity-80"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              viewBox="0 0 48 48"
+            >
+              <circle
+                cx="24"
+                cy="24"
+                r="22"
+                stroke="currentColor"
+                strokeWidth="3"
+              />
+              <path
+                d="M16 24h16M24 16v16"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+            </svg>
+            <h2 className="text-4xl font-extrabold text-white mb-4 drop-shadow-lg">
+              Secure Your Legal Success Today
             </h2>
-            <p className="text-blue-100 mb-6 max-w-2xl">
-              Whether you need expert legal advice, representation in court, or
-              guidance for your business, our experienced team is here to help.
-              Let LawFirmPro be your trusted partner in all legal matters.
+            <p className="text-blue-100 mb-8 max-w-2xl text-lg">
+              Don’t wait until it’s too late. Whether you’re facing a legal
+              challenge or planning for the future, our expert team is ready to
+              guide you every step of the way. Take the first step toward peace
+              of mind and lasting results.
             </p>
             <Link
               href="/contact-us"
-              className="inline-block bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-200 font-semibold px-8 py-3 rounded shadow hover:bg-blue-100 dark:hover:bg-gray-700 transition"
+              className="inline-block bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-200 font-bold px-10 py-4 rounded-full shadow-lg hover:bg-blue-100 dark:hover:bg-gray-700 transition text-lg tracking-wide"
             >
-              Contact Our Legal Team
+              Get Your Free Consultation
             </Link>
+            <span className="mt-6 text-blue-200 text-sm">
+              100% confidential &amp; no obligation
+            </span>
           </div>
         </section>
         <Footer />

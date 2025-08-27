@@ -135,6 +135,12 @@ const Headder = (props: Props) => {
               }`}
             >
               <Link
+                href={"/services"}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 border-b border-blue-100 dark:border-blue-900 cursor-pointer dark:text-gray-100"
+              >
+                All Services
+              </Link>
+              <Link
                 href={"/corporate-law"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >

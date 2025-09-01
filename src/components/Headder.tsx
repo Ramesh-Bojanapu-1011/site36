@@ -1,4 +1,5 @@
 import React from "react";
+import { useLang } from "./LangContext";
 import { ModeToggle } from "./theme/ModeToggle";
 import { MenuIcon, X as XIcon } from "lucide-react";
 import Link from "next/link";
@@ -13,10 +14,14 @@ const Headder = (props: Props) => {
   const [desktopHomeDropdown, setDesktopHomeDropdown] = React.useState(false);
   const [desktopServicesDropdown, setDesktopServicesDropdown] =
     React.useState(false);
-
+  const [desktopLangDropdown, setDesktopLangDropdown] = React.useState(false);
+  const [langDropdown, setLangDropdown] = React.useState(false);
+  const langRef = React.useRef<HTMLLIElement>(null);
   const homeRef = React.useRef<HTMLLIElement>(null);
   const servicesRef = React.useRef<HTMLLIElement>(null);
   const mobileMenuRef = React.useRef<HTMLDivElement>(null);
+
+  const { lang, setLang, t } = useLang();
 
   // Close dropdowns on outside click (desktop)
   React.useEffect(() => {
@@ -36,6 +41,13 @@ const Headder = (props: Props) => {
         setDesktopServicesDropdown(false);
       }
       if (
+        desktopLangDropdown &&
+        langRef.current &&
+        !langRef.current.contains(e.target as Node)
+      ) {
+        setDesktopLangDropdown(false);
+      }
+      if (
         mobileMenuOpen &&
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(e.target as Node)
@@ -43,11 +55,17 @@ const Headder = (props: Props) => {
         setMobileMenuOpen(false);
         setHomeDropdown(false);
         setServicesDropdown(false);
+        setLangDropdown(false);
       }
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, [desktopHomeDropdown, desktopServicesDropdown, mobileMenuOpen]);
+  }, [
+    desktopHomeDropdown,
+    desktopServicesDropdown,
+    desktopLangDropdown,
+    mobileMenuOpen,
+  ]);
 
   return (
     <header className="  bg-white dark:bg-gray-900 sticky top-0 z-50">
@@ -71,6 +89,56 @@ const Headder = (props: Props) => {
         </button>
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center list-none m-0 p-0">
+          {/* Language Dropdown (desktop) */}
+          <li className="relative" ref={langRef}>
+            <button
+              className="flex items-center gap-1 cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
+              type="button"
+              onClick={() => {
+                setDesktopLangDropdown((v) => !v);
+                setDesktopHomeDropdown(false);
+                setDesktopServicesDropdown(false);
+              }}
+              aria-expanded={desktopLangDropdown}
+            >
+              {t("language")} <span className="ml-1">▾</span>
+            </button>
+            <ul
+              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-20 flex flex-col ${
+                desktopLangDropdown
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <button
+                onClick={() => {
+                  setLang("en");
+                  setDesktopLangDropdown(false);
+                }}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${lang === "en" ? " font-bold" : ""}`}
+              >
+                English
+              </button>
+              <button
+                onClick={() => {
+                  setLang("ar");
+                  setDesktopLangDropdown(false);
+                }}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${lang === "ar" ? " font-bold" : ""}`}
+              >
+                العربية
+              </button>
+              <button
+                onClick={() => {
+                  setLang("he");
+                  setDesktopLangDropdown(false);
+                }}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${lang === "he" ? " font-bold" : ""}`}
+              >
+                עברית
+              </button>
+            </ul>
+          </li>
           {/* Home with dropdown (click only) */}
           <li className="relative" ref={homeRef}>
             <button
@@ -82,7 +150,7 @@ const Headder = (props: Props) => {
               }}
               aria-expanded={desktopHomeDropdown}
             >
-              Home <span className="ml-1">▾</span>
+              {t("home")} <span className="ml-1">▾</span>
             </button>
             <ul
               className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-20 flex flex-col ${
@@ -95,13 +163,13 @@ const Headder = (props: Props) => {
                 href={"/home1"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Home 1
+                {t("home1")}
               </Link>
               <Link
                 href={"/home2"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Home 2
+                {t("home2")}
               </Link>
             </ul>
           </li>
@@ -111,7 +179,7 @@ const Headder = (props: Props) => {
               href={"/about-us"}
               className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
             >
-              About Us
+              {t("about")}
             </Link>
           </li>
           {/* Services with dropdown (click only) */}
@@ -125,7 +193,7 @@ const Headder = (props: Props) => {
               }}
               aria-expanded={desktopServicesDropdown}
             >
-              Services <span className="ml-1">▾</span>
+              {t("services")} <span className="ml-1">▾</span>
             </button>
             <ul
               className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-48 py-2 transition-opacity duration-150 z-20 flex flex-col ${
@@ -138,43 +206,43 @@ const Headder = (props: Props) => {
                 href={"/services"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 border-b border-blue-100 dark:border-blue-900 cursor-pointer dark:text-gray-100"
               >
-                All Services
+                {t("all_services")}
               </Link>
               <Link
                 href={"/corporate-law"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Corporate Law
+                {t("corporate_law")}
               </Link>
               <Link
                 href={"/litigation-dispute-resolution"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Litigation & Dispute Resolution
+                {t("litigation")}
               </Link>
               <Link
                 href={"/intellectual-property"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Intellectual Property
+                {t("intellectual_property")}
               </Link>
               <Link
                 href={"/real-estate-law"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Real Estate Law
+                {t("real_estate")}
               </Link>
               <Link
                 href={"/family-law"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Family Law
+                {t("family_law")}
               </Link>
               <Link
                 href={"/employment-law"}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100"
               >
-                Employment Law
+                {t("employment_law")}
               </Link>
             </ul>
           </li>
@@ -184,7 +252,7 @@ const Headder = (props: Props) => {
               href={"/blog"}
               className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
             >
-              Blog
+              {t("blog")}
             </Link>
           </li>
           {/* Contact Us */}
@@ -193,7 +261,7 @@ const Headder = (props: Props) => {
               href={"/contact-us"}
               className="cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
             >
-              Contact Us
+              {t("contact")}
             </Link>
           </li>
         </ul>
@@ -219,6 +287,52 @@ const Headder = (props: Props) => {
         }`}
       >
         <ul className="flex flex-col gap-2 px-4">
+          {/* Language Dropdown (mobile) */}
+          <li>
+            <button
+              className="w-full flex items-center justify-between py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
+              onClick={() => {
+                setLangDropdown((v) => !v);
+                setHomeDropdown(false);
+                setServicesDropdown(false);
+              }}
+              type="button"
+              aria-expanded={langDropdown}
+            >
+              {t("language")} <span>▾</span>
+            </button>
+            {langDropdown && (
+              <ul className="pl-4 flex flex-col">
+                <button
+                  onClick={() => {
+                    setLang("en");
+                    setLangDropdown(false);
+                  }}
+                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${lang === "en" ? " font-bold" : ""}`}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => {
+                    setLang("ar");
+                    setLangDropdown(false);
+                  }}
+                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${lang === "ar" ? " font-bold" : ""}`}
+                >
+                  العربية
+                </button>
+                <button
+                  onClick={() => {
+                    setLang("he");
+                    setLangDropdown(false);
+                  }}
+                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${lang === "he" ? " font-bold" : ""}`}
+                >
+                  עברית
+                </button>
+              </ul>
+            )}
+          </li>
           {/* Home with dropdown */}
           <li>
             <button
@@ -230,7 +344,7 @@ const Headder = (props: Props) => {
               type="button"
               aria-expanded={homeDropdown}
             >
-              Home <span>▾</span>
+              {t("home")} <span>▾</span>
             </button>
             {homeDropdown && (
               <ul className="pl-4 flex flex-col">
@@ -238,13 +352,13 @@ const Headder = (props: Props) => {
                   href={"/home1"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Home 1
+                  {t("home1")}
                 </Link>
                 <Link
                   href={"/home2"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Home 2
+                  {t("home2")}
                 </Link>
               </ul>
             )}
@@ -255,7 +369,7 @@ const Headder = (props: Props) => {
               href={"/about-us"}
               className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex"
             >
-              About Us
+              {t("about")}
             </Link>
           </li>
           {/* Services with dropdown */}
@@ -269,7 +383,7 @@ const Headder = (props: Props) => {
               type="button"
               aria-expanded={servicesDropdown}
             >
-              Services <span>▾</span>
+              {t("services")} <span>▾</span>
             </button>
             {servicesDropdown && (
               <ul className="pl-4 flex flex-col">
@@ -277,37 +391,37 @@ const Headder = (props: Props) => {
                   href={"/corporate-law"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Corporate Law
+                  {t("corporate_law")}
                 </Link>
                 <Link
                   href={"/litigation-dispute-resolution"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Litigation & Dispute Resolution
+                  {t("litigation")}
                 </Link>
                 <Link
                   href={"/intellectual-property"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Intellectual Property
+                  {t("intellectual_property")}
                 </Link>
                 <Link
                   href={"/real-estate-law"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Real Estate Law
+                  {t("real_estate")}
                 </Link>
                 <Link
                   href={"/family-law"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Family Law
+                  {t("family_law")}
                 </Link>
                 <Link
                   href={"/employment-law"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
-                  Employment Law
+                  {t("employment_law")}
                 </Link>
               </ul>
             )}
@@ -318,7 +432,7 @@ const Headder = (props: Props) => {
               href={"/blog"}
               className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex"
             >
-              Blog
+              {t("blog")}
             </Link>
           </li>
           {/* Contact Us */}
@@ -327,7 +441,7 @@ const Headder = (props: Props) => {
               href={"/contact-us"}
               className="w-full py-2 font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none flex"
             >
-              Contact Us
+              {t("contact")}
             </Link>
           </li>
         </ul>

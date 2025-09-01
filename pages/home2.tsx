@@ -3,16 +3,15 @@ import Headder from "@/components/Headder";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import { useLang } from "../src/components/LangContext";
 
 const home2 = () => {
+  const { t } = useLang();
   return (
     <>
       <Head>
-        <title>LawFirmPro - Expertise Redefined</title>
-        <meta
-          name="description"
-          content="Innovative Legal Solutions for a Changing World"
-        />
+        <title>LawFirmPro - {t("home2_title")}</title>
+        <meta name="description" content={t("home2_meta_desc")} />
       </Head>
       <main className="bg-white dark:bg-gray-900 caret-transparent">
         <Headder />
@@ -33,23 +32,22 @@ const home2 = () => {
           <div className="absolute inset-0 bg-black/40 z-10" />
           <div className="md:w-1/2 z-20">
             <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-blue-200 mb-6">
-              Innovation in Law, Excellence in Service
+              {t("home2_hero_title")}
             </h1>
             <p className="text-lg md:text-2xl text-blue-800 dark:text-blue-100 mb-8">
-              Embracing technology and forward-thinking strategies to deliver
-              results for our clients.
+              {t("home2_hero_subtitle")}
             </p>
             <Link
               href="/about-us"
               className="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-4 rounded shadow transition"
             >
-              Learn More About Us
+              {t("home2_hero_button")}
             </Link>
           </div>
           <div className="md:w-1/2 flex justify-center mt-12 md:mt-0 z-20">
             <img
               src="/globe.svg"
-              alt="Innovation"
+              alt={t("home2_hero_img_alt")}
               className="w-80 h-80 object-contain drop-shadow-xl"
             />
           </div>
@@ -62,7 +60,7 @@ const home2 = () => {
           <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-10 blur-3xl -z-10" />
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
-              Our Values &amp; Process
+              {t("home2_values_title")}
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               {/* Values List */}
@@ -74,11 +72,10 @@ const home2 = () => {
                     </span>
                     <div>
                       <h3 className="font-bold text-lg text-blue-800 dark:text-blue-100 mb-1">
-                        Integrity
+                        {t("home2_value1_title")}
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-base">
-                        We uphold the highest ethical standards, ensuring
-                        honesty and transparency in every client interaction.
+                        {t("home2_value1_desc")}
                       </p>
                     </div>
                   </li>
@@ -88,11 +85,10 @@ const home2 = () => {
                     </span>
                     <div>
                       <h3 className="font-bold text-lg text-blue-800 dark:text-blue-100 mb-1">
-                        Innovation
+                        {t("home2_value2_title")}
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-base">
-                        We embrace new technologies and creative strategies to
-                        deliver the best legal solutions for our clients.
+                        {t("home2_value2_desc")}
                       </p>
                     </div>
                   </li>
@@ -102,12 +98,10 @@ const home2 = () => {
                     </span>
                     <div>
                       <h3 className="font-bold text-lg text-blue-800 dark:text-blue-100 mb-1">
-                        Collaboration
+                        {t("home2_value3_title")}
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-base">
-                        We work closely with our clients and within our team to
-                        ensure every perspective is valued and every goal is
-                        met.
+                        {t("home2_value3_desc")}
                       </p>
                     </div>
                   </li>
@@ -118,18 +112,18 @@ const home2 = () => {
                 <ol className="relative border-l-4 border-blue-200 dark:border-blue-900 ml-6">
                   {[
                     {
-                      step: "Consultation",
-                      desc: "We listen to your needs and provide a clear, honest assessment of your legal options.",
+                      step: t("home2_process1_title"),
+                      desc: t("home2_process1_desc"),
                       icon: "📞",
                     },
                     {
-                      step: "Strategy",
-                      desc: "Our team crafts a tailored legal plan, leveraging our expertise and innovative tools.",
+                      step: t("home2_process2_title"),
+                      desc: t("home2_process2_desc"),
                       icon: "🧩",
                     },
                     {
-                      step: "Resolution",
-                      desc: "We execute the plan with precision, keeping you informed and empowered at every stage.",
+                      step: t("home2_process3_title"),
+                      desc: t("home2_process3_desc"),
                       icon: "🏆",
                     },
                   ].map((item, idx) => (
@@ -158,30 +152,27 @@ const home2 = () => {
           <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-10 blur-3xl -z-10" />
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
-              Client Success Stories
+              {t("home2_success_title")}
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  name: "Acme Corp",
-                  result:
-                    "Won a major intellectual property dispute, securing our client’s patents and market position.",
+                  name: t("home2_success1_name"),
+                  result: t("home2_success1_result"),
                   img: "/file.svg",
-                  tag: "Business Law",
+                  tag: t("home2_success1_tag"),
                 },
                 {
-                  name: "The Smith Family",
-                  result:
-                    "Achieved a favorable settlement in a complex family law case, ensuring peace of mind for all parties.",
+                  name: t("home2_success2_name"),
+                  result: t("home2_success2_result"),
                   img: "/next.svg",
-                  tag: "Family Law",
+                  tag: t("home2_success2_tag"),
                 },
                 {
-                  name: "GreenTech Ltd.",
-                  result:
-                    "Guided a successful merger and acquisition, helping the client expand into new markets.",
+                  name: t("home2_success3_name"),
+                  result: t("home2_success3_result"),
                   img: "/vercel.svg",
-                  tag: "Corporate Law",
+                  tag: t("home2_success3_tag"),
                 },
               ].map((story) => (
                 <div
@@ -211,28 +202,28 @@ const home2 = () => {
         {/* Section 4: Awards & Recognition */}
         <section className="max-w-6xl mx-auto py-20 px-4">
           <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-12 text-center">
-            Awards &amp; Recognition
+            {t("home2_awards_title")}
           </h2>
           <div className="flex flex-wrap justify-center gap-8">
             {[
               {
-                title: "Top 100 Law Firms",
-                year: "2024",
+                title: t("home2_award1_title"),
+                year: t("home2_award1_year"),
                 icon: "🏆",
               },
               {
-                title: "Innovation in Legal Tech",
-                year: "2023",
+                title: t("home2_award2_title"),
+                year: t("home2_award2_year"),
                 icon: "💻",
               },
               {
-                title: "Client Service Excellence",
-                year: "2022",
+                title: t("home2_award3_title"),
+                year: t("home2_award3_year"),
                 icon: "🌟",
               },
               {
-                title: "Best Workplace",
-                year: "2023",
+                title: t("home2_award4_title"),
+                year: t("home2_award4_year"),
                 icon: "🏅",
               },
             ].map((award) => (
@@ -259,32 +250,32 @@ const home2 = () => {
           <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-10 blur-3xl -z-10" />
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
-              Community Impact Journey
+              {t("home2_community_title")}
             </h2>
             <ol className="relative border-l-4 border-blue-200 dark:border-blue-900 ml-6">
               {[
                 {
-                  year: "2021",
-                  title: "Launched Pro Bono Program",
-                  desc: "Started offering free legal services to underserved communities, making justice accessible for all.",
+                  year: t("home2_community1_year"),
+                  title: t("home2_community1_title"),
+                  desc: t("home2_community1_desc"),
                   icon: "🤲",
                 },
                 {
-                  year: "2022",
-                  title: "Legal Aid Drives",
-                  desc: "Organized city-wide legal aid events, helping hundreds with legal documentation and advice.",
+                  year: t("home2_community2_year"),
+                  title: t("home2_community2_title"),
+                  desc: t("home2_community2_desc"),
                   icon: "📄",
                 },
                 {
-                  year: "2023",
-                  title: "Community Seminars",
-                  desc: "Hosted educational workshops on legal rights, empowering citizens with knowledge.",
+                  year: t("home2_community3_year"),
+                  title: t("home2_community3_title"),
+                  desc: t("home2_community3_desc"),
                   icon: "🎤",
                 },
                 {
-                  year: "2024",
-                  title: "Charity Fundraisers",
-                  desc: "Raised funds for local charities and collaborated with NGOs to support social causes.",
+                  year: t("home2_community4_year"),
+                  title: t("home2_community4_title"),
+                  desc: t("home2_community4_desc"),
                   icon: "💙",
                 },
               ].map((item, _idx) => (
@@ -320,21 +311,19 @@ const home2 = () => {
               </span>
             </div>
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-4 drop-shadow-lg">
-              Book a Strategy Session
+              {t("home2_cta_title")}
             </h2>
             <p className="text-blue-800 dark:text-blue-100 mb-8 max-w-2xl text-lg">
-              Ready to take action? Schedule a one-on-one strategy session with
-              our senior legal advisors and get a personalized roadmap for your
-              case or business.
+              {t("home2_cta_desc")}
             </p>
             <Link
               href="/contact-us"
               className="inline-block bg-blue-700 dark:bg-blue-800 text-white font-bold px-10 py-4 rounded-full shadow-lg hover:bg-blue-800 dark:hover:bg-blue-900 transition text-lg tracking-wide"
             >
-              Book Now
+              {t("home2_cta_button")}
             </Link>
             <span className="mt-6 text-blue-400 dark:text-blue-200 text-sm">
-              Virtual &amp; in-person appointments available
+              {t("home2_cta_note")}
             </span>
           </div>
         </section>

@@ -4,16 +4,15 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useLang } from "../src/components/LangContext";
 
 const AboutUs = () => {
+  const { t } = useLang();
   return (
     <>
       <Head>
-        <title>About Us - LawFirmPro</title>
-        <meta
-          name="description"
-          content="About LawFirmPro - Trusted Legal Advisors"
-        />
+        <title>{t("aboutus_title")} - LawFirmPro</title>
+        <meta name="description" content={t("aboutus_meta_desc")} />
       </Head>
       <main className="bg-white caret-transparent dark:bg-gray-900">
         <Headder />
@@ -31,11 +30,10 @@ const AboutUs = () => {
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              About LawFirmPro
+              {t("aboutus_hero_title")}
             </h1>
             <p className="text-lg md:text-2xl mb-6 max-w-2xl mx-auto">
-              Your trusted legal advisors, committed to integrity, innovation,
-              and results for every client.
+              {t("aboutus_hero_subtitle")}
             </p>
           </div>
         </section>
@@ -46,7 +44,7 @@ const AboutUs = () => {
             <div className="w-full md:w-1/2 flex-shrink-0 mb-8 md:mb-0">
               <Image
                 src="/about-story.jpg"
-                alt="Our Story"
+                alt={t("aboutus_story_img_alt")}
                 className="rounded-2xl shadow-lg w-full h-72 object-cover object-center border-4 border-blue-100 dark:border-blue-900 bg-blue-50 dark:bg-blue-900"
                 width={500}
                 height={500}
@@ -54,20 +52,13 @@ const AboutUs = () => {
             </div>
             <div className="w-full md:w-1/2">
               <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-6">
-                Our Story
+                {t("aboutus_story_title")}
               </h2>
               <p className="text-gray-700 dark:text-gray-300 text-lg mb-4">
-                Founded by a team of passionate attorneys, LawFirmPro was
-                created to redefine the legal experience. We believe in making
-                high-quality legal services accessible, transparent, and
-                client-focused. Our journey began with a vision to combine deep
-                legal expertise with a modern, approachable style.
+                {t("aboutus_story_p1")}
               </p>
               <p className="text-gray-600 dark:text-gray-400">
-                Over the years, we have grown into a full-service law firm,
-                serving individuals, families, and businesses with dedication
-                and care. Our story is one of continuous learning, adaptation,
-                and a relentless pursuit of justice for our clients.
+                {t("aboutus_story_p2")}
               </p>
             </div>
           </div>
@@ -77,30 +68,34 @@ const AboutUs = () => {
         <section className="bg-blue-50 dark:bg-gray-800 py-16 px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-6">
-              Our Mission & Values
+              {t("aboutus_mission_title")}
             </h2>
             <ul className="grid md:grid-cols-3 gap-8">
               <li className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 flex flex-col items-center">
                 <span className="text-3xl mb-2">⚖️</span>
-                <h4 className="font-semibold mb-1">Integrity</h4>
+                <h4 className="font-semibold mb-1">
+                  {t("aboutus_mission1_title")}
+                </h4>
                 <p className="text-gray-600 dark:text-gray-300 text-center">
-                  We uphold the highest ethical standards in every case and
-                  every client relationship.
+                  {t("aboutus_mission1_desc")}
                 </p>
               </li>
               <li className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 flex flex-col items-center">
                 <span className="text-3xl mb-2">💡</span>
-                <h4 className="font-semibold mb-1">Innovation</h4>
+                <h4 className="font-semibold mb-1">
+                  {t("aboutus_mission2_title")}
+                </h4>
                 <p className="text-gray-600 dark:text-gray-300 text-center">
-                  We embrace technology and creative thinking to deliver modern
-                  legal solutions.
+                  {t("aboutus_mission2_desc")}
                 </p>
               </li>
               <li className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 flex flex-col items-center">
                 <span className="text-3xl mb-2">🤝</span>
-                <h4 className="font-semibold mb-1">Client Focus</h4>
+                <h4 className="font-semibold mb-1">
+                  {t("aboutus_mission3_title")}
+                </h4>
                 <p className="text-gray-600 dark:text-gray-300 text-center">
-                  Your needs and goals are at the heart of everything we do.
+                  {t("aboutus_mission3_desc")}
                 </p>
               </li>
             </ul>
@@ -110,37 +105,37 @@ const AboutUs = () => {
         {/* Section 4: Meet Our Team */}
         <section className="  mx-auto py-16 px-4">
           <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-8 text-center">
-            Meet Our Team
+            {t("meet_our_team")}
           </h2>
           <div className="flex gap-8   pb-4 md:justify-center scrollbar-thin scrollbar-thumb-blue-200 dark:scrollbar-thumb-blue-900">
             {[
               {
-                name: "Jessica Davis",
-                role: "Managing Partner",
+                name: t("team_jessica_name"),
+                role: t("team_jessica_role"),
                 avatar: "/team1.jpg",
                 initials: "JD",
-                bio: "Jessica specializes in corporate and commercial law, guiding businesses through complex transactions and regulatory challenges.",
+                bio: t("team_jessica_bio"),
               },
               {
-                name: "Michael Lee",
-                role: "Senior Litigator",
+                name: t("team_michael_name"),
+                role: t("team_michael_role"),
                 avatar: "/team2.jpg",
                 initials: "ML",
-                bio: "Michael is a seasoned litigator with a proven record in dispute resolution, representing clients in high-stakes cases.",
+                bio: t("team_michael_bio"),
               },
               {
-                name: "Priya Patel",
-                role: "Family Law Expert",
+                name: t("team_priya_name"),
+                role: t("team_priya_role"),
                 avatar: "/team3.jpg",
                 initials: "PP",
-                bio: "Priya brings empathy and expertise to family law, helping clients navigate sensitive matters with care and clarity.",
+                bio: t("team_priya_bio"),
               },
               {
-                name: "David Kim",
-                role: "Real Estate & IP",
+                name: t("team_david_name"),
+                role: t("team_david_role"),
                 avatar: "/team4.jpg",
                 initials: "DK",
-                bio: "David advises on real estate and intellectual property, ensuring clients’ assets and ideas are protected at every step.",
+                bio: t("team_david_bio"),
               },
             ].map((member) => (
               <div
@@ -180,10 +175,9 @@ const AboutUs = () => {
           <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-10 blur-3xl -z-10" />
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-12 text-center">
-              Community Commitment
+              {t("aboutus_community_title")}
             </h2>
             <div className="relative">
-              {/* <div className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-blue-200 dark:bg-blue-800 rounded-full -translate-x-1/2" /> */}
               <div className="space-y-12">
                 {/* Timeline Item 1 */}
                 <div className="flex flex-col md:flex-row items-center md:items-start md:gap-8 relative">
@@ -192,11 +186,10 @@ const AboutUs = () => {
                   </div>
                   <div className="mt-6 md:mt-0 md:ml-8 text-center md:text-left">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
-                      Annual Legal Aid Drives
+                      {t("aboutus_community1_title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 max-w-xl">
-                      Our team organizes yearly legal aid drives, providing free
-                      legal advice and support to underserved communities.
+                      {t("aboutus_community1_desc")}
                     </p>
                   </div>
                 </div>
@@ -207,11 +200,10 @@ const AboutUs = () => {
                   </div>
                   <div className="mt-6 md:mt-0 md:mr-8 text-center md:text-right">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
-                      Free Community Seminars
+                      {t("aboutus_community2_title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 max-w-xl">
-                      We host educational seminars and workshops to empower
-                      individuals with knowledge about their legal rights.
+                      {t("aboutus_community2_desc")}
                     </p>
                   </div>
                 </div>
@@ -222,11 +214,10 @@ const AboutUs = () => {
                   </div>
                   <div className="mt-6 md:mt-0 md:ml-8 text-center md:text-left">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
-                      Pro Bono Representation
+                      {t("aboutus_community3_title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 max-w-xl">
-                      Our attorneys dedicate time to pro bono cases, ensuring
-                      access to justice for those who need it most.
+                      {t("aboutus_community3_desc")}
                     </p>
                   </div>
                 </div>
@@ -237,11 +228,10 @@ const AboutUs = () => {
                   </div>
                   <div className="mt-6 md:mt-0 md:mr-8 text-center md:text-right">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
-                      Charity Fundraisers
+                      {t("aboutus_community4_title")}
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 max-w-xl">
-                      We actively participate in and sponsor charity events,
-                      raising funds for local causes and organizations.
+                      {t("aboutus_community4_desc")}
                     </p>
                   </div>
                 </div>
@@ -267,27 +257,28 @@ const AboutUs = () => {
               </span>
             </div>
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-white mb-4 drop-shadow-lg">
-              Let's Connect
+              {t("aboutus_cta_title")}
             </h2>
             <p className="text-blue-800 dark:text-blue-100 mb-8 max-w-xl text-lg">
-              Have a legal question or need expert advice? Our team is ready to
-              help—reach out for a confidential, no-obligation consultation.
+              {t("aboutus_cta_desc")}
             </p>
             <Link
               href="/contact-us"
               className="inline-block bg-blue-700 dark:bg-blue-800 text-white font-bold px-10 py-4 rounded-full shadow-lg hover:bg-blue-800 dark:hover:bg-blue-900 transition text-lg tracking-wide mb-4"
             >
-              Request Consultation
+              {t("request_consultation")}
             </Link>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-4">
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <span className="text-lg">🔒</span> 100% confidential
+                <span className="text-lg">🔒</span>{" "}
+                {t("aboutus_cta_confidential")}
               </span>
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <span className="text-lg">⏱️</span> Quick response
+                <span className="text-lg">⏱️</span> {t("aboutus_cta_quick")}
               </span>
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <span className="text-lg">💼</span> No obligation
+                <span className="text-lg">💼</span>{" "}
+                {t("aboutus_cta_noobligation")}
               </span>
             </div>
           </div>

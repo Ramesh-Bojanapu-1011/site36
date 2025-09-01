@@ -1,8 +1,10 @@
 import React from "react";
+import { useLang } from "./LangContext";
 
 type Props = {};
 
 const Footer = (props: Props) => {
+  const { t } = useLang();
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700  ">
       <div className="  mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -19,14 +21,13 @@ const Footer = (props: Props) => {
             </span>
           </div>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            Professional legal solutions for individuals and businesses. Trusted
-            advisors for all your law needs.
+            {t("footer_about")}
           </p>
         </div>
         {/* Quick Links */}
         <div>
           <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-3">
-            Quick Links
+            {t("quick_links")}
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -34,7 +35,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Home
+                {t("home")}
               </a>
             </li>
             <li>
@@ -42,7 +43,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                About Us
+                {t("about")}
               </a>
             </li>
             <li>
@@ -50,7 +51,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Blog
+                {t("blog")}
               </a>
             </li>
             <li>
@@ -58,7 +59,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Contact Us
+                {t("contact")}
               </a>
             </li>
           </ul>
@@ -66,7 +67,7 @@ const Footer = (props: Props) => {
         {/* Services */}
         <div>
           <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-3">
-            Services
+            {t("services")}
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -74,7 +75,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Corporate Law
+                {t("corporate_law")}
               </a>
             </li>
             <li>
@@ -82,7 +83,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Litigation & Dispute Resolution
+                {t("litigation")}
               </a>
             </li>
             <li>
@@ -90,7 +91,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Intellectual Property
+                {t("intellectual_property")}
               </a>
             </li>
             <li>
@@ -98,7 +99,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Real Estate Law
+                {t("real_estate")}
               </a>
             </li>
             <li>
@@ -106,7 +107,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Family Law
+                {t("family_law")}
               </a>
             </li>
             <li>
@@ -114,7 +115,7 @@ const Footer = (props: Props) => {
                 href="#"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                Employment Law
+                {t("employment_law")}
               </a>
             </li>
           </ul>
@@ -122,11 +123,11 @@ const Footer = (props: Props) => {
         {/* Contact Us */}
         <div>
           <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-3">
-            Contact Us
+            {t("contact")}
           </h3>
           <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
             <li>
-              <span className="font-medium">Phone:</span>{" "}
+              <span className="font-medium">{t("phone")}</span>{" "}
               <a
                 href="tel:+1234567890"
                 className="hover:text-blue-700 dark:hover:text-blue-300"
@@ -135,7 +136,7 @@ const Footer = (props: Props) => {
               </a>
             </li>
             <li>
-              <span className="font-medium">Email:</span>{" "}
+              <span className="font-medium">{t("email")}</span>{" "}
               <a
                 href="mailto:info@lawfirmpro.com"
                 className="hover:text-blue-700 dark:hover:text-blue-300"
@@ -144,14 +145,14 @@ const Footer = (props: Props) => {
               </a>
             </li>
             <li>
-              <span className="font-medium">Address:</span> 123 Legal Ave, Suite
-              100, City, Country
+              <span className="font-medium">{t("address")}</span> 123 Legal Ave,
+              Suite 100, City, Country
             </li>
           </ul>
         </div>
       </div>
       <div className="text-center text-xs text-gray-500 dark:text-gray-400 py-4 border-t border-gray-100 dark:border-gray-800">
-        © {new Date().getFullYear()} LawFirmPro. All rights reserved.
+        © {new Date().getFullYear()} LawFirmPro. {t("all_rights_reserved")}
       </div>
     </footer>
   );

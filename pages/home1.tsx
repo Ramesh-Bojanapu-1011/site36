@@ -3,20 +3,19 @@ import Headder from "@/components/Headder";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import { useLang } from "../src/components/LangContext";
 
 type Props = {
   // Define any props if needed
 };
 
 const home1 = (props: Props) => {
+  const { t } = useLang();
   return (
     <>
       <Head>
-        <title>LawFirmPro - Home</title>
-        <meta
-          name="description"
-          content="Expert Legal Advisors for Your Business and Personal Needs"
-        />
+        <title>LawFirmPro - {t("home")}</title>
+        <meta name="description" content={t("home_meta_desc")} />
       </Head>
       <main className="bg-white dark:bg-gray-900 caret-transparent">
         <Headder />
@@ -34,16 +33,14 @@ const home1 = (props: Props) => {
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="relative z-20 text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4  ">
-              Your Trusted Legal Advisors
+              {t("hero_title")}
             </h1>
-            <p className="text-lg md:text-2xl mb-6">
-              Expertise. Integrity. Results.
-            </p>
+            <p className="text-lg md:text-2xl mb-6">{t("hero_subtitle")}</p>
             <Link
               href="#contact"
               className="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded shadow transition"
             >
-              Request Consultation
+              {t("request_consultation")}
             </Link>
           </div>
         </section>
@@ -51,39 +48,39 @@ const home1 = (props: Props) => {
         {/* Section 2: Practice Areas */}
         <section className="max-w-7xl mx-auto py-20 px-4">
           <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
-            Our Practice Areas
+            {t("practice_areas")}
           </h2>
           {/* Timeline/roadmap style */}
           <div className="relative border-x-4  border-blue-200 dark:border-blue-900 ml-6 md:ml-0">
             {[
               {
-                title: "Corporate Law",
-                desc: "Business formation, mergers, acquisitions, and compliance. We provide strategic legal counsel for startups and established companies, draft and review contracts, and ensure your business operates within the law at every stage.",
+                title: t("corporate_law"),
+                desc: t("corporate_law_desc"),
                 icon: "\u{1F4BC}",
               },
               {
-                title: "Litigation & Dispute Resolution",
-                desc: "Expert representation in court and out-of-court settlements. Our litigators handle complex disputes, negotiate settlements, and advocate for your interests in civil, commercial, and regulatory matters.",
+                title: t("litigation"),
+                desc: t("litigation_desc"),
                 icon: "\u{2696}\u{FE0F}",
               },
               {
-                title: "Intellectual Property",
-                desc: "Protect your ideas, trademarks, and patents. We help you secure, enforce, and defend your intellectual property rights, from registration to litigation, ensuring your innovations remain yours.",
+                title: t("intellectual_property"),
+                desc: t("intellectual_property_desc"),
                 icon: "\u{1F4A1}",
               },
               {
-                title: "Real Estate Law",
-                desc: "Transactions, disputes, and property rights. Our team guides you through property purchases, sales, leasing, zoning, and development, resolving disputes and safeguarding your investments.",
+                title: t("real_estate"),
+                desc: t("real_estate_desc"),
                 icon: "\u{1F3E2}",
               },
               {
-                title: "Family Law",
-                desc: "Divorce, custody, and family matters with compassion. We support you through life’s transitions, handling divorce, child custody, adoption, and domestic agreements with sensitivity and care.",
+                title: t("family_law"),
+                desc: t("family_law_desc"),
                 icon: "\u{1F46A}",
               },
               {
-                title: "Employment Law",
-                desc: "Workplace rights, contracts, and disputes. We advise employers and employees on contracts, workplace policies, wrongful termination, discrimination, and labor relations to foster fair and lawful workplaces.",
+                title: t("employment_law"),
+                desc: t("employment_law_desc"),
                 icon: "\u{1F464}",
               },
             ].map((area, idx) => (
@@ -129,7 +126,7 @@ const home1 = (props: Props) => {
         <section className="bg-blue-50 dark:bg-gray-800 py-20 px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
-              Why Choose LawFirmPro?
+              {t("why_choose")}
             </h2>
             {/* Modern horizontal stepper/feature bar */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0 relative">
@@ -142,18 +139,18 @@ const home1 = (props: Props) => {
               {[
                 {
                   icon: "\u{2696}\u{FE0F}",
-                  title: "Experienced Attorneys",
-                  desc: "Our team brings decades of combined legal expertise across diverse practice areas. We provide knowledgeable, strategic counsel and dedicated advocacy to help you achieve the best possible outcome in every legal matter.",
+                  title: t("experienced_attorneys"),
+                  desc: t("experienced_attorneys_desc"),
                 },
                 {
                   icon: "\u{1F91D}",
-                  title: "Client-Focused",
-                  desc: "We prioritize your needs and goals, offering personalized solutions and clear communication at every step. Your peace of mind and satisfaction are at the heart of everything we do, from consultation to resolution.",
+                  title: t("client_focused"),
+                  desc: t("client_focused_desc"),
                 },
                 {
                   icon: "\u{1F3C6}",
-                  title: "Proven Results",
-                  desc: "Our track record speaks for itself—successful outcomes, satisfied clients, and a reputation for excellence. We are committed to delivering results and building lasting relationships based on trust and performance.",
+                  title: t("proven_results"),
+                  desc: t("proven_results_desc"),
                 },
               ].map((feature, idx) => (
                 <div
@@ -178,38 +175,38 @@ const home1 = (props: Props) => {
         {/* Section 4: Meet Our Team */}
         <section className="  mx-auto py-20 px-4">
           <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
-            Meet Our Team
+            {t("meet_our_team")}
           </h2>
           {/* Modern horizontal scrollable team showcase */}
           <div className="flex gap-8  flex-wrap  pb-4 md:justify-center scrollbar-thin scrollbar-thumb-blue-200 dark:scrollbar-thumb-blue-900">
             {[
               {
-                name: "Jessica Davis",
-                role: "Managing Partner",
+                name: t("team_jessica_name"),
+                role: t("team_jessica_role"),
                 avatar: "/team1.jpg",
                 initials: "JD",
-                bio: "Jessica specializes in corporate and commercial law, guiding businesses through complex transactions and regulatory challenges.",
+                bio: t("team_jessica_bio"),
               },
               {
-                name: "Michael Lee",
-                role: "Senior Litigator",
+                name: t("team_michael_name"),
+                role: t("team_michael_role"),
                 avatar: "/team2.jpg",
                 initials: "ML",
-                bio: "Michael is a seasoned litigator with a proven record in dispute resolution, representing clients in high-stakes cases.",
+                bio: t("team_michael_bio"),
               },
               {
-                name: "Priya Patel",
-                role: "Family Law Expert",
+                name: t("team_priya_name"),
+                role: t("team_priya_role"),
                 avatar: "/team3.jpg",
                 initials: "PP",
-                bio: "Priya brings empathy and expertise to family law, helping clients navigate sensitive matters with care and clarity.",
+                bio: t("team_priya_bio"),
               },
               {
-                name: "David Kim",
-                role: "Real Estate & IP",
+                name: t("team_david_name"),
+                role: t("team_david_role"),
                 avatar: "/team4.jpg",
                 initials: "DK",
-                bio: "David advises on real estate and intellectual property, ensuring clients’ assets and ideas are protected at every step.",
+                bio: t("team_david_bio"),
               },
             ].map((member) => (
               <div
@@ -247,228 +244,93 @@ const home1 = (props: Props) => {
           <div className="absolute bottom-0 right-0 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-20 blur-3xl -z-10" />
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
-              What Our Clients Say
+              {t("testimonials")}
             </h2>
             {/* Grid style testimonials */}
             <div className="relative flex flex-col items-center">
               <div className="w-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch justify-center">
-                  {/* Testimonial 1 */}
-                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
-                    <svg
-                      className="w-10 h-10 text-blue-400 mb-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
+                  {[
+                    {
+                      quote: t("testimonial1_quote"),
+                      client: t("testimonial1_client"),
+                      area: t("testimonial1_area"),
+                      img: "/client1.jpg",
+                      alt: "Business Client",
+                    },
+                    {
+                      quote: t("testimonial2_quote"),
+                      client: t("testimonial2_client"),
+                      area: t("testimonial2_area"),
+                      img: "/client2.jpg",
+                      alt: "Family Law Client",
+                    },
+                    {
+                      quote: t("testimonial3_quote"),
+                      client: t("testimonial3_client"),
+                      area: t("testimonial3_area"),
+                      img: "/client3.jpg",
+                      alt: "IP Client",
+                    },
+                    {
+                      quote: t("testimonial4_quote"),
+                      client: t("testimonial4_client"),
+                      area: t("testimonial4_area"),
+                      img: "/client4.jpg",
+                      alt: "Real Estate Client",
+                    },
+                    {
+                      quote: t("testimonial5_quote"),
+                      client: t("testimonial5_client"),
+                      area: t("testimonial5_area"),
+                      img: "/client5.jpg",
+                      alt: "Employment Client",
+                    },
+                    {
+                      quote: t("testimonial6_quote"),
+                      client: t("testimonial6_client"),
+                      area: t("testimonial6_area"),
+                      img: "/client6.jpg",
+                      alt: "General Client",
+                    },
+                  ].map((testi, idx) => (
+                    <div
+                      className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full"
+                      key={idx}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
-                      />
-                    </svg>
-                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
-                      "LawFirmPro guided us through a complex merger with
-                      professionalism and care. Their expertise made all the
-                      difference."
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src="/client1.jpg"
-                        alt="Business Client"
-                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
-                      />
-                      <div>
-                        <div className="font-semibold text-blue-800 dark:text-blue-100">
-                          — Business Client
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          Corporate Law
+                      <svg
+                        className="w-10 h-10 text-blue-400 mb-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
+                        />
+                      </svg>
+                      <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
+                        {testi.quote}
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={testi.img}
+                          alt={testi.alt}
+                          className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
+                        />
+                        <div>
+                          <div className="font-semibold text-blue-800 dark:text-blue-100">
+                            — {testi.client}
+                          </div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">
+                            {testi.area}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  {/* Testimonial 2 */}
-                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
-                    <svg
-                      className="w-10 h-10 text-blue-400 mb-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
-                      />
-                    </svg>
-                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
-                      "Their team was always available and truly fought for my
-                      family’s best interests. I felt supported every step of
-                      the way."
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src="/client2.jpg"
-                        alt="Family Law Client"
-                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
-                      />
-                      <div>
-                        <div className="font-semibold text-blue-800 dark:text-blue-100">
-                          — Family Law Client
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          Family Law
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Testimonial 3 */}
-                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
-                    <svg
-                      className="w-10 h-10 text-blue-400 mb-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
-                      />
-                    </svg>
-                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
-                      "I was impressed by their attention to detail and clear
-                      communication. Every step was explained and handled with
-                      care."
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src="/client3.jpg"
-                        alt="IP Client"
-                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
-                      />
-                      <div>
-                        <div className="font-semibold text-blue-800 dark:text-blue-100">
-                          — IP Client
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          Intellectual Property
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Testimonial 4 */}
-                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
-                    <svg
-                      className="w-10 h-10 text-blue-400 mb-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
-                      />
-                    </svg>
-                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
-                      "The real estate team made my property transaction
-                      seamless and stress-free. Highly recommended for their
-                      professionalism."
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src="/client4.jpg"
-                        alt="Real Estate Client"
-                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
-                      />
-                      <div>
-                        <div className="font-semibold text-blue-800 dark:text-blue-100">
-                          — Real Estate Client
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          Real Estate Law
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Testimonial 5 */}
-                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
-                    <svg
-                      className="w-10 h-10 text-blue-400 mb-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
-                      />
-                    </svg>
-                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
-                      "LawFirmPro’s employment law advice helped me resolve a
-                      workplace dispute quickly and fairly. I’m grateful for
-                      their support."
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src="/client5.jpg"
-                        alt="Employment Client"
-                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
-                      />
-                      <div>
-                        <div className="font-semibold text-blue-800 dark:text-blue-100">
-                          — Employment Client
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          Employment Law
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Testimonial 6 */}
-                  <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-8 flex flex-col items-center border-2 border-blue-100 dark:border-blue-800 hover:scale-105 transition-transform duration-300 h-full">
-                    <svg
-                      className="w-10 h-10 text-blue-400 mb-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 13h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2h2v2a2 2 0 002 2h0a2 2 0 002-2v-2z"
-                      />
-                    </svg>
-                    <p className="italic text-lg text-gray-700 dark:text-gray-200 mb-4">
-                      "From start to finish, the team was responsive and
-                      knowledgeable. I felt confident knowing my case was in
-                      good hands."
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src="/client6.jpg"
-                        alt="General Client"
-                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-300 dark:border-blue-700"
-                      />
-                      <div>
-                        <div className="font-semibold text-blue-800 dark:text-blue-100">
-                          — General Client
-                        </div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          General Legal Services
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -506,23 +368,18 @@ const home1 = (props: Props) => {
               />
             </svg>
             <h2 className="text-4xl font-extrabold text-white mb-4 drop-shadow-lg">
-              Secure Your Legal Success Today
+              {t("cta_title")}
             </h2>
             <p className="text-blue-100 mb-8 max-w-2xl text-lg">
-              Don’t wait until it’s too late. Whether you’re facing a legal
-              challenge or planning for the future, our expert team is ready to
-              guide you every step of the way. Take the first step toward peace
-              of mind and lasting results.
+              {t("cta_desc")}
             </p>
             <Link
               href="/contact-us"
               className="inline-block bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-200 font-bold px-10 py-4 rounded-full shadow-lg hover:bg-blue-100 dark:hover:bg-gray-700 transition text-lg tracking-wide"
             >
-              Get Your Free Consultation
+              {t("cta_button")}
             </Link>
-            <span className="mt-6 text-blue-200 text-sm">
-              100% confidential &amp; no obligation
-            </span>
+            <span className="mt-6 text-blue-200 text-sm">{t("cta_note")}</span>
           </div>
         </section>
         <Footer />

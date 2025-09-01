@@ -78,8 +78,10 @@ const Headder = (props: Props) => {
   ]);
 
   // Separate dropdown state for desktop and mobile
-  const [desktopProfileDropdown, setDesktopProfileDropdown] = React.useState(false);
-  const [mobileProfileDropdown, setMobileProfileDropdown] = React.useState(false);
+  const [desktopProfileDropdown, setDesktopProfileDropdown] =
+    React.useState(false);
+  const [mobileProfileDropdown, setMobileProfileDropdown] =
+    React.useState(false);
   const desktopProfileRef = React.useRef<HTMLDivElement>(null);
   const mobileProfileRef = React.useRef<HTMLDivElement>(null);
   const [user, setUser] = React.useState<User | null>(null);
@@ -138,7 +140,7 @@ const Headder = (props: Props) => {
       window.location.replace("/auth");
     }
   };
-   
+
   console.log("User", user);
 
   return (

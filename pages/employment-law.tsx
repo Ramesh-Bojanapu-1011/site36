@@ -4,13 +4,13 @@ import Head from "next/head";
 import React from "react";
 import { useLang } from "@/components/LangContext";
 
-const FamilyLaw = () => {
+const EmploymentLaw = () => {
   const { t } = useLang();
   return (
     <>
       <Head>
-        <title>{t("familyLaw.title")}</title>
-        <meta name="description" content={t("familyLaw.metaDescription")} />
+        <title>{t("employmentLaw.title")}</title>
+        <meta name="description" content={t("employmentLaw.metaDescription")} />
       </Head>
       <main className="bg-white dark:bg-gray-900">
         <Headder />
@@ -19,20 +19,20 @@ const FamilyLaw = () => {
         <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
           <video
             className="absolute inset-0 w-full h-full object-cover z-0"
-            src="/family-law-hero.mp4"
+            src="/employment-law-hero.mp4"
             autoPlay
             loop
             muted
             playsInline
-            poster="/family-law-hero-poster.jpg"
+            poster="/employment-law-hero-poster.jpg"
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("familyLaw.heroTitle")}
+              {t("employmentLaw.heroTitle")}
             </h1>
             <p className="text-lg md:text-2xl mb-6 max-w-2xl mx-auto">
-              {t("familyLaw.heroDesc")}
+              {t("employmentLaw.heroDesc")}
             </p>
           </div>
         </section>
@@ -40,7 +40,7 @@ const FamilyLaw = () => {
         {/* Section 2: What We Offer */}
         <section className="max-w-6xl mx-auto py-16 px-4">
           <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-12 text-center">
-            {t("familyLaw.ourServices")}
+            {t("employmentLaw.ourServices")}
           </h2>
           <div className="relative">
             <div
@@ -63,8 +63,8 @@ const FamilyLaw = () => {
                       <path d="M16 3v4M8 3v4" />
                     </svg>
                   ),
-                  title: t("familyLaw.services.0.title"),
-                  desc: t("familyLaw.services.0.desc"),
+                  title: t("employmentLaw.services.0.title"),
+                  desc: t("employmentLaw.services.0.desc"),
                 },
                 {
                   icon: (
@@ -80,8 +80,8 @@ const FamilyLaw = () => {
                       <path d="M8 8h8M8 12h8M8 16h4" />
                     </svg>
                   ),
-                  title: t("familyLaw.services.1.title"),
-                  desc: t("familyLaw.services.1.desc"),
+                  title: t("employmentLaw.services.1.title"),
+                  desc: t("employmentLaw.services.1.desc"),
                 },
                 {
                   icon: (
@@ -99,8 +99,8 @@ const FamilyLaw = () => {
                       <path d="M7 8V6a5 5 0 0 1 10 0v2" />
                     </svg>
                   ),
-                  title: t("familyLaw.services.2.title"),
-                  desc: t("familyLaw.services.2.desc"),
+                  title: t("employmentLaw.services.2.title"),
+                  desc: t("employmentLaw.services.2.desc"),
                 },
                 {
                   icon: (
@@ -117,8 +117,8 @@ const FamilyLaw = () => {
                       <path d="M12 8v8" />
                     </svg>
                   ),
-                  title: t("familyLaw.services.3.title"),
-                  desc: t("familyLaw.services.3.desc"),
+                  title: t("employmentLaw.services.3.title"),
+                  desc: t("employmentLaw.services.3.desc"),
                 },
                 {
                   icon: (
@@ -135,8 +135,8 @@ const FamilyLaw = () => {
                       <path d="M9 17v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
                     </svg>
                   ),
-                  title: t("familyLaw.services.4.title"),
-                  desc: t("familyLaw.services.4.desc"),
+                  title: t("employmentLaw.services.4.title"),
+                  desc: t("employmentLaw.services.4.desc"),
                 },
                 {
                   icon: (
@@ -152,8 +152,8 @@ const FamilyLaw = () => {
                       <path d="M2 12h20M12 2v20" />
                     </svg>
                   ),
-                  title: t("familyLaw.services.5.title"),
-                  desc: t("familyLaw.services.5.desc"),
+                  title: t("employmentLaw.services.5.title"),
+                  desc: t("employmentLaw.services.5.desc"),
                 },
               ].map((item, idx) => (
                 <div
@@ -185,11 +185,11 @@ const FamilyLaw = () => {
           </div>
         </section>
 
-        {/* Section 3: Why Family Law Clients Choose Us */}
+        {/* Section 3: Why Employment Law Clients Choose Us */}
         <section className="bg-gradient-to-r from-blue-50 via-white to-blue-100 dark:from-gray-800 dark:via-gray-900 dark:to-blue-950 py-20 px-4 overflow-hidden">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-14 text-center">
-              {t("familyLaw.whyChooseTitle")}
+              {t("employmentLaw.whyChooseTitle")}
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-8">
               {/* Card 1 */}
@@ -207,10 +207,10 @@ const FamilyLaw = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-100 text-xl tracking-wide">
-                  {t("familyLaw.whyChoose.0.title")}
+                  {t("employmentLaw.whyChoose.0.title")}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-center text-base">
-                  {t("familyLaw.whyChoose.0.desc")}
+                  {t("employmentLaw.whyChoose.0.desc")}
                 </p>
               </div>
               {/* Card 2 */}
@@ -229,10 +229,10 @@ const FamilyLaw = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-100 text-xl tracking-wide">
-                  {t("familyLaw.whyChoose.1.title")}
+                  {t("employmentLaw.whyChoose.1.title")}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-center text-base">
-                  {t("familyLaw.whyChoose.1.desc")}
+                  {t("employmentLaw.whyChoose.1.desc")}
                 </p>
               </div>
               {/* Card 3 */}
@@ -250,10 +250,10 @@ const FamilyLaw = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-100 text-xl tracking-wide">
-                  {t("familyLaw.whyChoose.2.title")}
+                  {t("employmentLaw.whyChoose.2.title")}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-center text-base">
-                  {t("familyLaw.whyChoose.2.desc")}
+                  {t("employmentLaw.whyChoose.2.desc")}
                 </p>
               </div>
             </div>
@@ -263,7 +263,7 @@ const FamilyLaw = () => {
         {/* Section 4: Case Studies / Success Stories */}
         <section className="mx-auto py-16 px-4">
           <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-14 text-center">
-            {t("familyLaw.successStoriesTitle")}
+            {t("employmentLaw.successStoriesTitle")}
           </h2>
           <div className="relative">
             <div className="absolute left-6 top-0 bottom-0 w-1 bg-blue-100 dark:bg-blue-800 rounded-full" />
@@ -285,14 +285,14 @@ const FamilyLaw = () => {
                 </div>
                 <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-blue-100 dark:border-blue-900 flex-1">
                   <p className="text-lg text-blue-900 dark:text-blue-100 mb-2 font-medium">
-                    {t("familyLaw.successStories.0.quote")}
+                    {t("employmentLaw.successStories.0.quote")}
                   </p>
                   <div className="flex items-center gap-3 mt-4">
                     <span className="w-10 h-10 rounded-full bg-blue-300 dark:bg-blue-800 flex items-center justify-center text-xl font-bold text-blue-900 dark:text-blue-100">
-                      {t("familyLaw.successStories.0.initials")}
+                      {t("employmentLaw.successStories.0.initials")}
                     </span>
                     <span className="text-blue-700 dark:text-blue-300 font-semibold">
-                      {t("familyLaw.successStories.0.client")}
+                      {t("employmentLaw.successStories.0.client")}
                     </span>
                   </div>
                 </div>
@@ -314,14 +314,14 @@ const FamilyLaw = () => {
                 </div>
                 <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-blue-100 dark:border-blue-900 flex-1">
                   <p className="text-lg text-blue-900 dark:text-blue-100 mb-2 font-medium">
-                    {t("familyLaw.successStories.1.quote")}
+                    {t("employmentLaw.successStories.1.quote")}
                   </p>
                   <div className="flex items-center gap-3 mt-4">
                     <span className="w-10 h-10 rounded-full bg-blue-300 dark:bg-blue-800 flex items-center justify-center text-xl font-bold text-blue-900 dark:text-blue-100">
-                      {t("familyLaw.successStories.1.initials")}
+                      {t("employmentLaw.successStories.1.initials")}
                     </span>
                     <span className="text-blue-700 dark:text-blue-300 font-semibold">
-                      {t("familyLaw.successStories.1.client")}
+                      {t("employmentLaw.successStories.1.client")}
                     </span>
                   </div>
                 </div>
@@ -330,11 +330,11 @@ const FamilyLaw = () => {
           </div>
         </section>
 
-        {/* Section 5: Our Family Law Process */}
+        {/* Section 5: Our Employment Law Process */}
         <section className="bg-blue-50 dark:bg-gray-800 py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-14 text-center">
-              {t("familyLaw.processTitle")}
+              {t("employmentLaw.processTitle")}
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-6">
               {/* Step 1 */}
@@ -352,10 +352,10 @@ const FamilyLaw = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-100 text-lg tracking-wide">
-                  {t("familyLaw.process.0.title")}
+                  {t("employmentLaw.process.0.title")}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-base">
-                  {t("familyLaw.process.0.desc")}
+                  {t("employmentLaw.process.0.desc")}
                 </p>
               </div>
               {/* Step 2 */}
@@ -374,10 +374,10 @@ const FamilyLaw = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-100 text-lg tracking-wide">
-                  {t("familyLaw.process.1.title")}
+                  {t("employmentLaw.process.1.title")}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-base">
-                  {t("familyLaw.process.1.desc")}
+                  {t("employmentLaw.process.1.desc")}
                 </p>
               </div>
               {/* Step 3 */}
@@ -397,10 +397,10 @@ const FamilyLaw = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-100 text-lg tracking-wide">
-                  {t("familyLaw.process.2.title")}
+                  {t("employmentLaw.process.2.title")}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-base">
-                  {t("familyLaw.process.2.desc")}
+                  {t("employmentLaw.process.2.desc")}
                 </p>
               </div>
               {/* Step 4 */}
@@ -418,10 +418,10 @@ const FamilyLaw = () => {
                   </svg>
                 </div>
                 <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-100 text-lg tracking-wide">
-                  {t("familyLaw.process.3.title")}
+                  {t("employmentLaw.process.3.title")}
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-base">
-                  {t("familyLaw.process.3.desc")}
+                  {t("employmentLaw.process.3.desc")}
                 </p>
               </div>
             </div>
@@ -432,19 +432,19 @@ const FamilyLaw = () => {
         <section className="relative max-w-3xl mx-auto py-20 px-4 flex items-center justify-center">
           <div className="relative bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 dark:from-blue-800 dark:via-blue-900 dark:to-gray-900 rounded-3xl shadow-2xl p-12 text-center flex flex-col items-center border-4 border-white dark:border-blue-900">
             <h2 className="text-3xl font-extrabold text-white mb-4 drop-shadow-lg">
-              {t("familyLaw.ctaTitle")}
+              {t("employmentLaw.ctaTitle")}
             </h2>
             <p className="text-blue-100 mb-8 max-w-2xl text-lg">
-              {t("familyLaw.ctaDesc")}
+              {t("employmentLaw.ctaDesc")}
             </p>
             <a
               href="/contact-us"
               className="inline-block bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-200 font-bold px-10 py-4 rounded-full shadow-lg hover:bg-blue-100 dark:hover:bg-gray-700 transition text-lg tracking-wide"
             >
-              {t("familyLaw.ctaButton")}
+              {t("employmentLaw.ctaButton")}
             </a>
             <span className="mt-6 text-blue-200 text-sm">
-              {t("familyLaw.ctaNote")}
+              {t("employmentLaw.ctaNote")}
             </span>
           </div>
         </section>
@@ -455,4 +455,4 @@ const FamilyLaw = () => {
   );
 };
 
-export default FamilyLaw;
+export default EmploymentLaw;

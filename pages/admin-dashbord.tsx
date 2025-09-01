@@ -19,6 +19,7 @@ import {
   CartesianGrid,
 } from "recharts";
 import Headder from "@/components/Headder";
+import { useLang } from "@/components/LangContext";
 
 type User = {
   name: string;
@@ -30,6 +31,7 @@ type User = {
 const COLORS = ["#0088FE", "#00C49F"];
 
 const AdminDashboard = () => {
+   const { t } = useLang();
   const [users, setUsers] = useState<User[]>([]);
   const [loggedUsers, setLoggedUsers] = useState<User[]>([]);
 
@@ -78,13 +80,13 @@ const AdminDashboard = () => {
       <Headder />
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-950 dark:to-blue-950 p-10">
         <h1 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-10 text-center">
-          Admin Dashboard
+          {t("adminDashboard.title")}
         </h1>
         <div className="flex flex-col md:flex-row gap-12 items-start justify-center">
           {/* Pie Chart Section */}
           <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border-2 border-blue-100 dark:border-blue-800 flex flex-col items-center mb-10">
             <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
-              User Overview
+              {t("adminDashboard.userOverview")}
             </h2>
             <div className="w-[320px] h-[320px] flex items-center justify-center">
               <PieChart width={320} height={320}>
@@ -114,7 +116,7 @@ const AdminDashboard = () => {
           {/* Bar Chart Section */}
           <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border-2 border-blue-100 dark:border-blue-800 flex flex-col items-center mb-10">
             <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
-              Registered Users Per Day
+              {t("adminDashboard.bar.title")}
             </h2>
             <div className="w-[400px] h-[320px] flex items-center justify-center">
               <BarChart
@@ -136,30 +138,56 @@ const AdminDashboard = () => {
         {/* User Lists Section */}
         <div className="flex-1 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border-2 border-blue-100 dark:border-blue-800">
           <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
-            All Users
+            {t("adminDashboard.table.allUsers")}
           </h2>
           <div className="overflow-x-auto mb-8">
             <table className="min-w-full bg-white dark:bg-gray-900 border border-blue-100 dark:border-blue-800 rounded-lg shadow">
               <thead>
                 <tr className="bg-blue-100 dark:bg-gray-800">
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">#</th>
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">Name</th>
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">Email</th>
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">Registration Time</th>
+                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                    {t("adminDashboard.table.th.number")}
+                  </th>
+                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                    {t("adminDashboard.table.th.name")}
+                  </th>
+                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                    {t("adminDashboard.table.th.email")}
+                  </th>
+                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                    {t("adminDashboard.table.th.registerTime")}
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {users.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="py-4 px-4 text-gray-500 text-center">No users registered.</td>
+                    <td
+                      colSpan={4}
+                      className="py-4 px-4 text-gray-500 text-center"
+                    >
+                      No users registered.
+                    </td>
                   </tr>
                 ) : (
                   users.map((user, idx) => (
-                    <tr key={idx} className="border-t border-blue-100 dark:border-gray-800">
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">{idx + 1}</td>
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300 font-semibold">{user.name}</td>
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">{user.email}</td>
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">{user.registerTime ? new Date(user.registerTime).toLocaleString() : '-'}</td>
+                    <tr
+                      key={idx}
+                      className="border-t border-blue-100 dark:border-gray-800"
+                    >
+                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">
+                        {idx + 1}
+                      </td>
+                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300 font-semibold">
+                        {user.name}
+                      </td>
+                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">
+                        {user.email}
+                      </td>
+                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">
+                        {user.registerTime
+                          ? new Date(user.registerTime).toLocaleString()
+                          : "-"}
+                      </td>
                     </tr>
                   ))
                 )}
@@ -167,7 +195,7 @@ const AdminDashboard = () => {
             </table>
           </div>
           <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
-            Logged Users
+            {t("adminDashboard.table.loggedInUsers")}
           </h2>
           <ul>
             {loggedUsers.length === 0 ? (
@@ -193,3 +221,4 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+ 

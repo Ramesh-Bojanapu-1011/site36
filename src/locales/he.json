@@ -1,4 +1,21 @@
+
 {
+    "adminDashboard.title": "לוח מנהל מערכת",
+  "adminDashboard.userOverview": "סקירת משתמשים",
+  "adminDashboard.pie.loggedUsers": "משתמשים מחוברים",
+  "adminDashboard.pie.allUsers": "כל המשתמשים",
+  "adminDashboard.bar.title": "משתמשים שנרשמו לפי יום",
+  "adminDashboard.bar.legend": "משתמשים שנרשמו",
+  "adminDashboard.table.allUsers": "כל המשתמשים",
+  "adminDashboard.table.loggedUsers": "משתמשים מחוברים",
+  "adminDashboard.table.noUsers": "אין משתמשים רשומים.",
+  "adminDashboard.table.noLogged": "אין משתמשים מחוברים.",
+  "adminDashboard.table.th.number": "#",
+  "adminDashboard.table.th.name": "שם",
+  "adminDashboard.table.th.email": "אימייל",
+  "adminDashboard.table.th.registerTime": "זמן הרשמה",
+  "adminDashboard.table.loggedInUsers": "משתמשים מחוברים",
+
   "contact.title": "צור קשר - LawFirmPro",
   "contact.metaDescription": "צור קשר עם LawFirmPro לייעוץ משפטי, פגישות ותמיכה.",
   "contact.heroTitle": "צור קשר עם LawFirmPro",

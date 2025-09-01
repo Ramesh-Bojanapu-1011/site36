@@ -364,7 +364,9 @@ const Headder = (props: Props) => {
             </button>
             {/* Dropdown */}
             <ul
-              className={`absolute right-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
+              className={` absolute  ${
+                lang !== "en" ? "left-0" : "right-0"
+              }       mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
                 desktopProfileDropdown
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"

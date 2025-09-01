@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
+import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 const ADMIN_EMAIL = "admin@enkonix.in";
 const ADMIN_PASSWORD = "admin123";
@@ -109,7 +110,7 @@ const AuthPage = () => {
                   onClick={() => setShowPassword((prev) => !prev)}
                   tabIndex={-1}
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  {showPassword ? <EyeOff /> : <Eye />}
                 </button>
               </div>
               <button
@@ -183,7 +184,7 @@ const AuthPage = () => {
                   onClick={() => setShowPassword((prev) => !prev)}
                   tabIndex={-1}
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  {showPassword ? <EyeOff /> : <Eye />}
                 </button>
               </div>
               <button

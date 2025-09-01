@@ -10,14 +10,15 @@ const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   // Registration handler
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !password) {
+    if (!lastname || !firstName || !email || !password) {
       setError("Please fill all fields.");
       return;
     }
@@ -25,9 +26,9 @@ const AuthPage = () => {
     const registerTime = new Date().toISOString();
     localStorage.setItem(
       "user",
-      JSON.stringify({ name, email, password, registerTime })
+      JSON.stringify({ lastname, firstName, email, password, registerTime }),
     );
-    localStorage.setItem("registerTime", registerTime);
+
     setError("");
     alert("Registration successful! You can now login.");
     setIsLogin(true);
@@ -53,11 +54,9 @@ const AuthPage = () => {
       const user = JSON.parse(userStr);
       if (user.email === email && user.password === password) {
         localStorage.setItem("isAdmin", "false");
-        localStorage.setItem(
-          "loggedInUser",
-          JSON.stringify({ ...user, loginTime: new Date().toISOString() })
-        );
-
+        const updatedUser = { ...user, loginTime: new Date().toISOString() };
+        localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+        localStorage.setItem("user", JSON.stringify(updatedUser));
         router.push("/home1");
         return;
       }
@@ -147,9 +146,17 @@ const AuthPage = () => {
             >
               <input
                 type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastname}
+                onChange={(e) => setLastName(e.target.value)}
                 className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />

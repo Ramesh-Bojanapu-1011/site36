@@ -1,6 +1,5 @@
-
 {
-    "adminDashboard.title": "לוח מנהל מערכת",
+  "adminDashboard.title": "לוח מנהל מערכת",
   "adminDashboard.userOverview": "סקירת משתמשים",
   "adminDashboard.pie.loggedUsers": "משתמשים מחוברים",
   "adminDashboard.pie.allUsers": "כל המשתמשים",

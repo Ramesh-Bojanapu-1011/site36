@@ -1,6 +1,5 @@
-
 {
-    "adminDashboard.title": "لوحة تحكم المسؤول",
+  "adminDashboard.title": "لوحة تحكم المسؤول",
   "adminDashboard.userOverview": "نظرة عامة على المستخدمين",
   "adminDashboard.pie.loggedUsers": "المستخدمون المسجلون الدخول",
   "adminDashboard.pie.allUsers": "جميع المستخدمين",

@@ -31,7 +31,7 @@ type User = {
 const COLORS = ["#0088FE", "#00C49F"];
 
 const AdminDashboard = () => {
-   const { t } = useLang();
+  const { t } = useLang();
   const [users, setUsers] = useState<User[]>([]);
   const [loggedUsers, setLoggedUsers] = useState<User[]>([]);
 
@@ -221,4 +221,3 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
- 

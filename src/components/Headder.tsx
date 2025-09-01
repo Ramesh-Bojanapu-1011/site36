@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { useLang } from "./LangContext";
 import { ModeToggle } from "./theme/ModeToggle";
 import { MenuIcon, X as XIcon } from "lucide-react";
@@ -6,6 +6,16 @@ import Link from "next/link";
 import Image from "next/image";
 
 type Props = {};
+
+interface User {
+  // Define user properties as needed, for example:
+  lastname: string;
+  firstName: string;
+  email: string;
+  registerTime: string;
+  loginTime: string;
+  logoutTime?: string;
+}
 
 const Headder = (props: Props) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -67,6 +77,70 @@ const Headder = (props: Props) => {
     mobileMenuOpen,
   ]);
 
+  // Separate dropdown state for desktop and mobile
+  const [desktopProfileDropdown, setDesktopProfileDropdown] = React.useState(false);
+  const [mobileProfileDropdown, setMobileProfileDropdown] = React.useState(false);
+  const desktopProfileRef = React.useRef<HTMLDivElement>(null);
+  const mobileProfileRef = React.useRef<HTMLDivElement>(null);
+  const [user, setUser] = React.useState<User | null>(null);
+
+  // Close profile dropdown on outside click
+  // Desktop profile dropdown close
+  React.useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (
+        desktopProfileDropdown &&
+        desktopProfileRef.current &&
+        !desktopProfileRef.current.contains(e.target as Node)
+      ) {
+        setDesktopProfileDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [desktopProfileDropdown]);
+
+  // Mobile profile dropdown close
+  React.useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (
+        mobileProfileDropdown &&
+        mobileProfileRef.current &&
+        !mobileProfileRef.current.contains(e.target as Node)
+      ) {
+        setMobileProfileDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [mobileProfileDropdown]);
+  React.useEffect(() => {
+    const user = localStorage.getItem("loggedInUser");
+    if (user) {
+      const userObj: User = JSON.parse(user);
+      setUser(userObj);
+    }
+  }, []);
+
+  // Logout handler
+  const handleLogout = () => {
+    if (user) {
+      const logoutTime = new Date().toISOString();
+      const updatedUser: User = { ...user, logoutTime };
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      localStorage.removeItem("loggedInUser");
+      localStorage.removeItem("isAdmin");
+      setDesktopProfileDropdown(false);
+      setMobileProfileDropdown(false);
+      setUser(null);
+      window.location.replace("/auth");
+    } else {
+      window.location.replace("/auth");
+    }
+  };
+   
+  console.log("User", user);
+
   return (
     <header className="  bg-white dark:bg-gray-900 sticky top-0 z-50">
       <nav className="flex items-center  justify-between sm:px-6 lg:px-8 px-4 h-16">
@@ -115,7 +189,9 @@ const Headder = (props: Props) => {
                   setLang("en");
                   setDesktopLangDropdown(false);
                 }}
-                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${lang === "en" ? " font-bold" : ""}`}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
+                  lang === "en" ? " font-bold" : ""
+                }`}
               >
                 English
               </button>
@@ -124,7 +200,9 @@ const Headder = (props: Props) => {
                   setLang("ar");
                   setDesktopLangDropdown(false);
                 }}
-                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${lang === "ar" ? " font-bold" : ""}`}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
+                  lang === "ar" ? " font-bold" : ""
+                }`}
               >
                 العربية
               </button>
@@ -133,7 +211,9 @@ const Headder = (props: Props) => {
                   setLang("he");
                   setDesktopLangDropdown(false);
                 }}
-                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${lang === "he" ? " font-bold" : ""}`}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
+                  lang === "he" ? " font-bold" : ""
+                }`}
               >
                 עברית
               </button>
@@ -270,13 +350,32 @@ const Headder = (props: Props) => {
           <div className="  ">
             <ModeToggle />
           </div>
-          {/* Profile Avatar (desktop only) */}
-          <button
-            className="ml-4 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 focus:outline-none hover:ring-2 hover:ring-blue-400 dark:hover:ring-blue-300 transition"
-            aria-label="Profile"
-          >
-            RB
-          </button>
+          {/* Profile Avatar with Dropdown (desktop only) */}
+          <div className="ml-4 relative" ref={desktopProfileRef}>
+            <button
+              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 focus:outline-none hover:ring-2 hover:ring-blue-400 dark:hover:ring-blue-300 transition"
+              aria-label="Profile"
+              onClick={() => setDesktopProfileDropdown((v) => !v)}
+            >
+              {user?.firstName ? user.firstName[0].toUpperCase() : ""}
+              {user?.lastname ? user.lastname[0].toUpperCase() : ""}
+            </button>
+            {/* Dropdown */}
+            <ul
+              className={`absolute right-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
+                desktopProfileDropdown
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"
+              >
+                Logout
+              </button>
+            </ul>
+          </div>
         </div>
       </nav>
       {/* Mobile Menu */}
@@ -308,7 +407,9 @@ const Headder = (props: Props) => {
                     setLang("en");
                     setLangDropdown(false);
                   }}
-                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${lang === "en" ? " font-bold" : ""}`}
+                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${
+                    lang === "en" ? " font-bold" : ""
+                  }`}
                 >
                   English
                 </button>
@@ -317,7 +418,9 @@ const Headder = (props: Props) => {
                     setLang("ar");
                     setLangDropdown(false);
                   }}
-                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${lang === "ar" ? " font-bold" : ""}`}
+                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${
+                    lang === "ar" ? " font-bold" : ""
+                  }`}
                 >
                   العربية
                 </button>
@@ -326,7 +429,9 @@ const Headder = (props: Props) => {
                     setLang("he");
                     setLangDropdown(false);
                   }}
-                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${lang === "he" ? " font-bold" : ""}`}
+                  className={`py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100 text-left${
+                    lang === "he" ? " font-bold" : ""
+                  }`}
                 >
                   עברית
                 </button>
@@ -447,12 +552,32 @@ const Headder = (props: Props) => {
         </ul>
         {/* Mobile Theme Toggle and Profile */}
         <div className="flex  items-center gap-3 mt-4 md:hidden">
-          <button
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 focus:outline-none hover:ring-2 hover:ring-blue-400 dark:hover:ring-blue-300 transition"
-            aria-label="Profile"
-          >
-            RB
-          </button>
+          {/* Profile Avatar with Dropdown (mobile) */}
+          <div className="relative" ref={mobileProfileRef}>
+            <button
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 focus:outline-none hover:ring-2 hover:ring-blue-400 dark:hover:ring-blue-300 transition"
+              aria-label="Profile"
+              onClick={() => setMobileProfileDropdown((v) => !v)}
+            >
+              {user?.firstName ? user.firstName[0].toUpperCase() : ""}
+              {user?.lastname ? user.lastname[0].toUpperCase() : ""}
+            </button>
+            {/* Dropdown */}
+            <ul
+              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
+                mobileProfileDropdown
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"
+              >
+                Logout
+              </button>
+            </ul>
+          </div>
           <ModeToggle />
         </div>
       </div>

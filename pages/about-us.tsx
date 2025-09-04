@@ -3,8 +3,10 @@ import Headder from "@/components/Headder";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+
 import React from "react";
 import { useLang } from "../src/components/LangContext";
+import { Scale, Lightbulb, Handshake, Handshake as HandshakeIcon, GraduationCap, Scale as ScaleIcon, HeartHandshake, Phone, MessageCircle, Mail, Lock, Timer, Briefcase } from "lucide-react";
 
 const AboutUs = () => {
   const { t } = useLang();
@@ -20,12 +22,11 @@ const AboutUs = () => {
         <section className="relative h-[100vh] flex items-center justify-center">
           <video
             className="absolute inset-0 w-full h-full object-cover z-0"
-            src="/law-hero.mp4"
+            src="/about-hero.mp4"
             autoPlay
             loop
             muted
             playsInline
-            poster="/law-hero-poster.jpg"
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
@@ -45,7 +46,7 @@ const AboutUs = () => {
               <Image
                 src="/about-story.jpg"
                 alt={t("aboutus_story_img_alt")}
-                className="rounded-2xl shadow-lg w-full h-72 object-cover object-center border-4 border-blue-100 dark:border-blue-900 bg-blue-50 dark:bg-blue-900"
+                className="rounded-2xl shadow-lg w-full h-92   object-cover object-top border-4 border-blue-100 dark:border-blue-900 bg-blue-50 dark:bg-blue-900"
                 width={500}
                 height={500}
               />
@@ -72,7 +73,9 @@ const AboutUs = () => {
             </h2>
             <ul className="grid md:grid-cols-3 gap-8">
               <li className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 flex flex-col items-center">
-                <span className="text-3xl mb-2">⚖️</span>
+                <span className="mb-2 text-blue-700 dark:text-blue-200">
+                  <Scale size={32} />
+                </span>
                 <h4 className="font-semibold mb-1">
                   {t("aboutus_mission1_title")}
                 </h4>
@@ -81,7 +84,9 @@ const AboutUs = () => {
                 </p>
               </li>
               <li className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 flex flex-col items-center">
-                <span className="text-3xl mb-2">💡</span>
+                <span className="mb-2 text-blue-700 dark:text-blue-200">
+                  <Lightbulb size={32} />
+                </span>
                 <h4 className="font-semibold mb-1">
                   {t("aboutus_mission2_title")}
                 </h4>
@@ -90,7 +95,9 @@ const AboutUs = () => {
                 </p>
               </li>
               <li className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 flex flex-col items-center">
-                <span className="text-3xl mb-2">🤝</span>
+                <span className="mb-2 text-blue-700 dark:text-blue-200">
+                  <Handshake size={32} />
+                </span>
                 <h4 className="font-semibold mb-1">
                   {t("aboutus_mission3_title")}
                 </h4>
@@ -146,7 +153,7 @@ const AboutUs = () => {
                   <Image
                     src={member.avatar}
                     alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover mb-4 border-4 border-blue-200 dark:border-blue-900 bg-blue-100 dark:bg-blue-900"
+                    className="w-24 h-24 rounded-full object-cover object-top mb-4 border-4 border-blue-200 dark:border-blue-900 bg-blue-100 dark:bg-blue-900"
                     width={96}
                     height={96}
                   />
@@ -182,7 +189,7 @@ const AboutUs = () => {
                 {/* Timeline Item 1 */}
                 <div className="flex flex-col md:flex-row items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <span className="text-4xl">🤝</span>
+                    <HandshakeIcon size={48} className="text-blue-700 dark:text-blue-200" />
                   </div>
                   <div className="mt-6 md:mt-0 md:ml-8 text-center md:text-left">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -196,7 +203,7 @@ const AboutUs = () => {
                 {/* Timeline Item 2 */}
                 <div className="flex flex-col md:flex-row-reverse items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <span className="text-4xl">🎓</span>
+                    <GraduationCap size={48} className="text-blue-700 dark:text-blue-200" />
                   </div>
                   <div className="mt-6 md:mt-0 md:mr-8 text-center md:text-right">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -210,7 +217,7 @@ const AboutUs = () => {
                 {/* Timeline Item 3 */}
                 <div className="flex flex-col md:flex-row items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <span className="text-4xl">⚖️</span>
+                    <ScaleIcon size={48} className="text-blue-700 dark:text-blue-200" />
                   </div>
                   <div className="mt-6 md:mt-0 md:ml-8 text-center md:text-left">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -224,7 +231,7 @@ const AboutUs = () => {
                 {/* Timeline Item 4 */}
                 <div className="flex flex-col md:flex-row-reverse items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <span className="text-4xl">💙</span>
+                    <HeartHandshake size={48} className="text-blue-700 dark:text-blue-200" />
                   </div>
                   <div className="mt-6 md:mt-0 md:mr-8 text-center md:text-right">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -247,13 +254,13 @@ const AboutUs = () => {
           <div className="relative w-full mx-auto bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-10 md:p-16 text-center border-4 border-blue-100 dark:border-blue-900 flex flex-col items-center">
             <div className="flex gap-6 mb-8 justify-center">
               <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-800 text-3xl shadow">
-                📞
+                <Phone size={32} className="text-blue-700 dark:text-blue-200" />
               </span>
               <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-800 text-3xl shadow">
-                💬
+                <MessageCircle size={32} className="text-blue-700 dark:text-blue-200" />
               </span>
               <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-800 text-3xl shadow">
-                📧
+                <Mail size={32} className="text-blue-700 dark:text-blue-200" />
               </span>
             </div>
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-white mb-4 drop-shadow-lg">
@@ -270,15 +277,13 @@ const AboutUs = () => {
             </Link>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-4">
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <span className="text-lg">🔒</span>{" "}
-                {t("aboutus_cta_confidential")}
+                <Lock size={18} className="text-blue-700 dark:text-blue-200" /> {t("aboutus_cta_confidential")}
               </span>
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <span className="text-lg">⏱️</span> {t("aboutus_cta_quick")}
+                <Timer size={18} className="text-blue-700 dark:text-blue-200" /> {t("aboutus_cta_quick")}
               </span>
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <span className="text-lg">💼</span>{" "}
-                {t("aboutus_cta_noobligation")}
+                <Briefcase size={18} className="text-blue-700 dark:text-blue-200" /> {t("aboutus_cta_noobligation")}
               </span>
             </div>
           </div>

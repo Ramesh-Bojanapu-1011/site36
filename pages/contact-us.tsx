@@ -61,7 +61,6 @@ const ContactUs = () => {
             loop
             muted
             playsInline
-            poster="/contact-hero-poster.jpg"
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
@@ -229,7 +228,7 @@ const ContactUs = () => {
                 <img
                   src="/avatar1.png"
                   alt="Client Avatar"
-                  className="w-16 h-16 rounded-full border-4 border-blue-200 dark:border-blue-700 shadow-lg bg-white object-cover"
+                  className="w-16 h-16 rounded-full object-top border-4 border-blue-200 dark:border-blue-700 shadow-lg bg-white object-cover"
                 />
               </div>
               <p className="text-lg text-blue-900 dark:text-blue-100 mb-4 font-medium mt-10">
@@ -252,7 +251,7 @@ const ContactUs = () => {
                 <img
                   src="/avatar2.png"
                   alt="Client Avatar"
-                  className="w-16 h-16 rounded-full border-4 border-blue-200 dark:border-blue-700 shadow-lg bg-white object-cover"
+                  className="w-16 h-16 rounded-full object-top  border-4 border-blue-200 dark:border-blue-700 shadow-lg bg-white object-cover"
                 />
               </div>
               <p className="text-lg text-blue-900 dark:text-blue-100 mb-4 font-medium mt-10">

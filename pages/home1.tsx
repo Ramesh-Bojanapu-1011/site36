@@ -4,6 +4,16 @@ import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { useLang } from "../src/components/LangContext";
+import {
+  Briefcase,
+  Building2,
+  Handshake,
+  Lightbulb,
+  Scale,
+  Trophy,
+  User,
+  Users,
+} from "lucide-react";
 
 type Props = {
   // Define any props if needed
@@ -28,7 +38,6 @@ const home1 = (props: Props) => {
             loop
             muted
             playsInline
-            poster="/law-hero-poster.jpg"
           />
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="relative z-20 text-center text-white px-4">
@@ -56,32 +65,32 @@ const home1 = (props: Props) => {
               {
                 title: t("corporate_law"),
                 desc: t("corporate_law_desc"),
-                icon: "\u{1F4BC}",
+                icon: <Briefcase />,
               },
               {
                 title: t("litigation"),
                 desc: t("litigation_desc"),
-                icon: "\u{2696}\u{FE0F}",
+                icon: <Scale />,
               },
               {
                 title: t("intellectual_property"),
                 desc: t("intellectual_property_desc"),
-                icon: "\u{1F4A1}",
+                icon: <Lightbulb />,
               },
               {
                 title: t("real_estate"),
                 desc: t("real_estate_desc"),
-                icon: "\u{1F3E2}",
+                icon: <Building2 />,
               },
               {
                 title: t("family_law"),
                 desc: t("family_law_desc"),
-                icon: "\u{1F46A}",
+                icon: <Users />,
               },
               {
                 title: t("employment_law"),
                 desc: t("employment_law_desc"),
-                icon: "\u{1F464}",
+                icon: <User />,
               },
             ].map((area, idx) => (
               <div
@@ -138,17 +147,17 @@ const home1 = (props: Props) => {
               {/* Features */}
               {[
                 {
-                  icon: "\u{2696}\u{FE0F}",
+                  icon: <Users />,
                   title: t("experienced_attorneys"),
                   desc: t("experienced_attorneys_desc"),
                 },
                 {
-                  icon: "\u{1F91D}",
+                  icon: <Handshake />,
                   title: t("client_focused"),
                   desc: t("client_focused_desc"),
                 },
                 {
-                  icon: "\u{1F3C6}",
+                  icon: <Trophy />,
                   title: t("proven_results"),
                   desc: t("proven_results_desc"),
                 },
@@ -217,7 +226,7 @@ const home1 = (props: Props) => {
                   <img
                     src={member.avatar}
                     alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover mb-4 border-4 border-blue-200 dark:border-blue-900 bg-blue-100 dark:bg-blue-900"
+                    className="w-24 h-24 rounded-full object-cover object-top mb-4 border-4 border-blue-200 dark:border-blue-900 bg-blue-100 dark:bg-blue-900"
                   />
                 ) : (
                   <div className="w-24 h-24 rounded-full bg-blue-200 dark:bg-blue-900 mb-4 flex items-center justify-center text-3xl text-blue-900 dark:text-blue-100 border-4 border-blue-100 dark:border-blue-900">

@@ -178,19 +178,19 @@ const home2 = () => {
                 {
                   name: t("home2_success1_name"),
                   result: t("home2_success1_result"),
-                  img: "/file.svg",
+                  img: "/acme.jpg",
                   tag: t("home2_success1_tag"),
                 },
                 {
                   name: t("home2_success2_name"),
                   result: t("home2_success2_result"),
-                  img: "/next.svg",
+                  img: "https://i.pinimg.com/736x/1a/4a/3f/1a4a3fcedd33995cff4e9a1ef0696604.jpg",
                   tag: t("home2_success2_tag"),
                 },
                 {
                   name: t("home2_success3_name"),
                   result: t("home2_success3_result"),
-                  img: "/vercel.svg",
+                  img: "/greenTech-Ltd.jpg",
                   tag: t("home2_success3_tag"),
                 },
               ].map((story) => (
@@ -204,7 +204,7 @@ const home2 = () => {
                   <img
                     src={story.img}
                     alt={story.name}
-                    className="w-16 h-16 mb-4"
+                    className="w-20 h-20 object-cover rounded-4xl mb-4"
                   />
                   <h3 className="font-bold text-lg text-blue-800 dark:text-blue-100 mb-2">
                     {story.name}

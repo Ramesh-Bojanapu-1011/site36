@@ -23,8 +23,8 @@ const LitigationDisputeResolution = () => {
             loop
             muted
             playsInline
-            poster="/litigation-hero-poster.jpg"
           />
+          
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">

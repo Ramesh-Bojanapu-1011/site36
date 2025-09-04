@@ -1,9 +1,26 @@
 import Footer from "@/components/Footer";
 import Headder from "@/components/Headder";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useLang } from "../src/components/LangContext";
+import {
+  Landmark,
+  Rocket,
+  Handshake,
+  PhoneCall,
+  Puzzle,
+  Trophy,
+  Calendar,
+  Laptop2,
+  Star,
+  Medal,
+  HelpingHand,
+  FileText,
+  Mic,
+  HeartHandshake,
+} from "lucide-react";
 
 const home2 = () => {
   const { t } = useLang();
@@ -20,21 +37,20 @@ const home2 = () => {
         <section className="relative flex flex-col md:flex-row items-center justify-between min-h-[100vh] px-4 py-20 bg-gradient-to-br from-blue-100 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950 overflow-hidden">
           {/* Background video */}
           <video
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            className="absolute inset-0 opacity-50 w-full h-full object-cover z-0"
             src="/law-hero.mp4"
             autoPlay
             loop
             muted
             playsInline
-            poster="/law-hero-poster.jpg"
           />
           {/* Overlay for readability */}
           <div className="absolute inset-0 bg-black/40 z-10" />
           <div className="md:w-1/2 z-20">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-blue-200 mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white dark:text-blue-200 mb-6">
               {t("home2_hero_title")}
             </h1>
-            <p className="text-lg md:text-2xl text-blue-800 dark:text-blue-100 mb-8">
+            <p className="text-lg md:text-2xl text-white dark:text-blue-100 mb-8">
               {t("home2_hero_subtitle")}
             </p>
             <Link
@@ -45,10 +61,13 @@ const home2 = () => {
             </Link>
           </div>
           <div className="md:w-1/2 flex justify-center mt-12 md:mt-0 z-20">
-            <img
-              src="/globe.svg"
+            <Image
+              src="/home2-hero.jpg"
               alt={t("home2_hero_img_alt")}
-              className="w-80 h-80 object-contain drop-shadow-xl"
+              className=" object-cover w-xl h-auto"
+              width={320}
+              height={320}
+              priority
             />
           </div>
         </section>
@@ -62,13 +81,13 @@ const home2 = () => {
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
               {t("home2_values_title")}
             </h2>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-18">
               {/* Values List */}
               <div className="flex-1">
                 <ul className="space-y-8">
                   <li className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white dark:border-gray-900">
-                      🏛️
+                    <span className="flex-shrink-0 w-13 h-13 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white dark:border-gray-900">
+                      <Landmark size={28} />
                     </span>
                     <div>
                       <h3 className="font-bold text-lg text-blue-800 dark:text-blue-100 mb-1">
@@ -80,8 +99,8 @@ const home2 = () => {
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white dark:border-gray-900">
-                      🚀
+                    <span className="flex-shrink-0 w-13 h-13 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white dark:border-gray-900">
+                      <Rocket size={28} />
                     </span>
                     <div>
                       <h3 className="font-bold text-lg text-blue-800 dark:text-blue-100 mb-1">
@@ -93,8 +112,8 @@ const home2 = () => {
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white dark:border-gray-900">
-                      🤝
+                    <span className="flex-shrink-0 w-13 h-13 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-2xl text-white shadow-lg border-4 border-white dark:border-gray-900">
+                      <Handshake size={28} />
                     </span>
                     <div>
                       <h3 className="font-bold text-lg text-blue-800 dark:text-blue-100 mb-1">
@@ -108,27 +127,27 @@ const home2 = () => {
                 </ul>
               </div>
               {/* Process Timeline */}
-              <div className="flex-1 mt-16 md:mt-0">
-                <ol className="relative border-l-4 border-blue-200 dark:border-blue-900 ml-6">
+              <div className="flex-1  ">
+                <ol className=" space-y-8     ">
                   {[
                     {
                       step: t("home2_process1_title"),
                       desc: t("home2_process1_desc"),
-                      icon: "📞",
+                      icon: <PhoneCall size={24} />,
                     },
                     {
                       step: t("home2_process2_title"),
                       desc: t("home2_process2_desc"),
-                      icon: "🧩",
+                      icon: <Puzzle size={24} />,
                     },
                     {
                       step: t("home2_process3_title"),
                       desc: t("home2_process3_desc"),
-                      icon: "🏆",
+                      icon: <Trophy size={24} />,
                     },
                   ].map((item, idx) => (
-                    <li key={item.step} className="mb-12 ml-6 relative">
-                      <span className="absolute -left-10 top-0 w-10 h-10 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-xl text-white shadow-lg border-4 border-white dark:border-gray-900">
+                    <li key={item.step} className="    relative">
+                      <span className=" absolute -left-15 top-0 w-13 h-13 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-xl text-white shadow-lg border-4 border-white dark:border-gray-900">
                         {item.icon}
                       </span>
                       <h4 className="font-bold text-blue-800 dark:text-blue-100 text-lg mb-1">
@@ -209,22 +228,22 @@ const home2 = () => {
               {
                 title: t("home2_award1_title"),
                 year: t("home2_award1_year"),
-                icon: "🏆",
+                icon: <Trophy size={32} />,
               },
               {
                 title: t("home2_award2_title"),
                 year: t("home2_award2_year"),
-                icon: "💻",
+                icon: <Laptop2 size={32} />,
               },
               {
                 title: t("home2_award3_title"),
                 year: t("home2_award3_year"),
-                icon: "🌟",
+                icon: <Star size={32} />,
               },
               {
                 title: t("home2_award4_title"),
                 year: t("home2_award4_year"),
-                icon: "🏅",
+                icon: <Medal size={32} />,
               },
             ].map((award) => (
               <div
@@ -258,25 +277,25 @@ const home2 = () => {
                   year: t("home2_community1_year"),
                   title: t("home2_community1_title"),
                   desc: t("home2_community1_desc"),
-                  icon: "🤲",
+                  icon: <HelpingHand size={28} />,
                 },
                 {
                   year: t("home2_community2_year"),
                   title: t("home2_community2_title"),
                   desc: t("home2_community2_desc"),
-                  icon: "📄",
+                  icon: <FileText size={28} />,
                 },
                 {
                   year: t("home2_community3_year"),
                   title: t("home2_community3_title"),
                   desc: t("home2_community3_desc"),
-                  icon: "🎤",
+                  icon: <Mic size={28} />,
                 },
                 {
                   year: t("home2_community4_year"),
                   title: t("home2_community4_title"),
                   desc: t("home2_community4_desc"),
-                  icon: "💙",
+                  icon: <HeartHandshake size={28} />,
                 },
               ].map((item, _idx) => (
                 <li key={item.title} className="mb-16 ml-6 relative">
@@ -307,7 +326,7 @@ const home2 = () => {
           <div className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-12 text-center flex flex-col items-center border-4 border-blue-100 dark:border-blue-900">
             <div className="flex items-center justify-center mb-6">
               <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-700 dark:bg-blue-800 text-white text-4xl shadow-lg border-4 border-white dark:border-blue-900">
-                📅
+                <Calendar size={40} />
               </span>
             </div>
             <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-4 drop-shadow-lg">

@@ -44,7 +44,6 @@ const Blog = () => {
             loop
             muted
             playsInline
-             
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
@@ -66,7 +65,7 @@ const Blog = () => {
             {blogPosts.map((post) => (
               <a
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={`/${post.slug}`}
                 className="group block bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-blue-100 dark:border-blue-800 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
               >
                 <img

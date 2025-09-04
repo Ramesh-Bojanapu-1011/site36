@@ -6,7 +6,21 @@ import Link from "next/link";
 
 import React from "react";
 import { useLang } from "../src/components/LangContext";
-import { Scale, Lightbulb, Handshake, Handshake as HandshakeIcon, GraduationCap, Scale as ScaleIcon, HeartHandshake, Phone, MessageCircle, Mail, Lock, Timer, Briefcase } from "lucide-react";
+import {
+  Scale,
+  Lightbulb,
+  Handshake,
+  Handshake as HandshakeIcon,
+  GraduationCap,
+  Scale as ScaleIcon,
+  HeartHandshake,
+  Phone,
+  MessageCircle,
+  Mail,
+  Lock,
+  Timer,
+  Briefcase,
+} from "lucide-react";
 
 const AboutUs = () => {
   const { t } = useLang();
@@ -189,7 +203,10 @@ const AboutUs = () => {
                 {/* Timeline Item 1 */}
                 <div className="flex flex-col md:flex-row items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <HandshakeIcon size={48} className="text-blue-700 dark:text-blue-200" />
+                    <HandshakeIcon
+                      size={48}
+                      className="text-blue-700 dark:text-blue-200"
+                    />
                   </div>
                   <div className="mt-6 md:mt-0 md:ml-8 text-center md:text-left">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -203,7 +220,10 @@ const AboutUs = () => {
                 {/* Timeline Item 2 */}
                 <div className="flex flex-col md:flex-row-reverse items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <GraduationCap size={48} className="text-blue-700 dark:text-blue-200" />
+                    <GraduationCap
+                      size={48}
+                      className="text-blue-700 dark:text-blue-200"
+                    />
                   </div>
                   <div className="mt-6 md:mt-0 md:mr-8 text-center md:text-right">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -217,7 +237,10 @@ const AboutUs = () => {
                 {/* Timeline Item 3 */}
                 <div className="flex flex-col md:flex-row items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <ScaleIcon size={48} className="text-blue-700 dark:text-blue-200" />
+                    <ScaleIcon
+                      size={48}
+                      className="text-blue-700 dark:text-blue-200"
+                    />
                   </div>
                   <div className="mt-6 md:mt-0 md:ml-8 text-center md:text-left">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -231,7 +254,10 @@ const AboutUs = () => {
                 {/* Timeline Item 4 */}
                 <div className="flex flex-col md:flex-row-reverse items-center md:items-start md:gap-8 relative">
                   <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mx-auto md:mx-0">
-                    <HeartHandshake size={48} className="text-blue-700 dark:text-blue-200" />
+                    <HeartHandshake
+                      size={48}
+                      className="text-blue-700 dark:text-blue-200"
+                    />
                   </div>
                   <div className="mt-6 md:mt-0 md:mr-8 text-center md:text-right">
                     <h3 className="text-2xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
@@ -257,7 +283,10 @@ const AboutUs = () => {
                 <Phone size={32} className="text-blue-700 dark:text-blue-200" />
               </span>
               <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-800 text-3xl shadow">
-                <MessageCircle size={32} className="text-blue-700 dark:text-blue-200" />
+                <MessageCircle
+                  size={32}
+                  className="text-blue-700 dark:text-blue-200"
+                />
               </span>
               <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-800 text-3xl shadow">
                 <Mail size={32} className="text-blue-700 dark:text-blue-200" />
@@ -277,13 +306,19 @@ const AboutUs = () => {
             </Link>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-4">
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <Lock size={18} className="text-blue-700 dark:text-blue-200" /> {t("aboutus_cta_confidential")}
+                <Lock size={18} className="text-blue-700 dark:text-blue-200" />{" "}
+                {t("aboutus_cta_confidential")}
               </span>
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <Timer size={18} className="text-blue-700 dark:text-blue-200" /> {t("aboutus_cta_quick")}
+                <Timer size={18} className="text-blue-700 dark:text-blue-200" />{" "}
+                {t("aboutus_cta_quick")}
               </span>
               <span className="text-blue-700 dark:text-blue-200 text-sm flex items-center gap-2">
-                <Briefcase size={18} className="text-blue-700 dark:text-blue-200" /> {t("aboutus_cta_noobligation")}
+                <Briefcase
+                  size={18}
+                  className="text-blue-700 dark:text-blue-200"
+                />{" "}
+                {t("aboutus_cta_noobligation")}
               </span>
             </div>
           </div>

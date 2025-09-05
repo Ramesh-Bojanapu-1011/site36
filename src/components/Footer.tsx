@@ -1,5 +1,6 @@
 import React from "react";
 import { useLang } from "./LangContext";
+import Link from "next/link";
 
 type Props = {};
 
@@ -31,36 +32,52 @@ const Footer = (props: Props) => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/home1"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
-                {t("home")}
-              </a>
+                {t("home")}1
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/home2"
+                className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
+              >
+                {t("home")}2
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about-us"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("about")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/services"
+                className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
+              >
+                {t("services")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/blog"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("blog")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/contact-us"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("contact")}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -71,52 +88,52 @@ const Footer = (props: Props) => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/corporate-law"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("corporate_law")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/litigation-dispute-resolution"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("litigation")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/intellectual-property"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("intellectual_property")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/real-estate-law"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("real_estate")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/family-law"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("family_law")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/employment-law"
                 className="hover:text-blue-700 dark:hover:text-blue-300 text-gray-600 dark:text-gray-300"
               >
                 {t("employment_law")}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -128,21 +145,21 @@ const Footer = (props: Props) => {
           <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
             <li>
               <span className="font-medium">{t("phone")}</span>{" "}
-              <a
+              <Link
                 href="tel:+1234567890"
                 className="hover:text-blue-700 dark:hover:text-blue-300"
               >
                 +1 234 567 890
-              </a>
+              </Link>
             </li>
             <li>
               <span className="font-medium">{t("email")}</span>{" "}
-              <a
+              <Link
                 href="mailto:info@lawfirmpro.com"
                 className="hover:text-blue-700 dark:hover:text-blue-300"
               >
                 info@lawfirmpro.com
-              </a>
+              </Link>
             </li>
             <li>
               <span className="font-medium">{t("address")}</span> 123 Legal Ave,

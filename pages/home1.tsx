@@ -353,7 +353,7 @@ const home1 = (props: Props) => {
         >
           {/* Decorative background shapes */}
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-200 dark:bg-blue-900 rounded-full opacity-30 blur-2xl -z-10" />
-          <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-300 dark:bg-blue-800 rounded-full opacity-20 blur-3xl -z-10" />
+
           <div className="relative bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 dark:from-blue-800 dark:via-blue-900 dark:to-gray-900 rounded-3xl shadow-2xl p-12 text-center flex flex-col items-center border-4 border-white dark:border-blue-900">
             <svg
               className="w-16 h-16 mb-6 text-white opacity-80"

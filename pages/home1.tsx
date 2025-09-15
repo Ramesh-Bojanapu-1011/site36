@@ -60,7 +60,7 @@ const home1 = (props: Props) => {
             {t("practice_areas")}
           </h2>
           {/* Timeline/roadmap style */}
-          <div className="relative border-x-4  border-blue-200 dark:border-blue-900 ml-6 md:ml-0">
+          <div className="relative   ml-6 md:ml-0">
             {[
               {
                 title: t("corporate_law"),
@@ -113,7 +113,7 @@ const home1 = (props: Props) => {
                   <h3 className="text-2xl font-bold text-blue-800 dark:text-blue-100 mb-2 tracking-tight">
                     {area.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-justify text-base leading-relaxed">
                     {area.desc}
                   </p>
                 </div>
@@ -121,7 +121,7 @@ const home1 = (props: Props) => {
             ))}
             {/* Vertical line accent */}
             <div
-              className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-blue-200 dark:from-blue-900 to-transparent pointer-events-none"
+              className="absolute hidden md:block left-0 top-0 w-2 h-full bg-gradient-to-b from-blue-200 dark:from-blue-900 to-transparent pointer-events-none"
               style={{ zIndex: 0 }}
             />
             <div

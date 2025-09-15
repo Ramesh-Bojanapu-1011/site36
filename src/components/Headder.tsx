@@ -165,62 +165,6 @@ const Headder = (props: Props) => {
         </button>
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center list-none m-0 p-0">
-          {/* Language Dropdown (desktop) */}
-          <li className="relative" ref={langRef}>
-            <button
-              className="flex items-center gap-1 cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
-              type="button"
-              onClick={() => {
-                setDesktopLangDropdown((v) => !v);
-                setDesktopHomeDropdown(false);
-                setDesktopServicesDropdown(false);
-              }}
-              aria-expanded={desktopLangDropdown}
-            >
-              {t("language")} <span className="ml-1">▾</span>
-            </button>
-            <ul
-              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-20 flex flex-col ${
-                desktopLangDropdown
-                  ? "opacity-100 pointer-events-auto"
-                  : "opacity-0 pointer-events-none"
-              }`}
-            >
-              <button
-                onClick={() => {
-                  setLang("en");
-                  setDesktopLangDropdown(false);
-                }}
-                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
-                  lang === "en" ? " font-bold" : ""
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => {
-                  setLang("ar");
-                  setDesktopLangDropdown(false);
-                }}
-                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
-                  lang === "ar" ? " font-bold" : ""
-                }`}
-              >
-                العربية
-              </button>
-              <button
-                onClick={() => {
-                  setLang("he");
-                  setDesktopLangDropdown(false);
-                }}
-                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
-                  lang === "he" ? " font-bold" : ""
-                }`}
-              >
-                עברית
-              </button>
-            </ul>
-          </li>
           {/* Home with dropdown (click only) */}
           <li className="relative" ref={homeRef}>
             <button
@@ -347,7 +291,63 @@ const Headder = (props: Props) => {
             </Link>
           </li>
         </ul>
-        <div className="hidden md:flex">
+        <div className="hidden md:flex gap-3 items-center">
+          {/* Language Dropdown (desktop) */}
+          <div className="relative">
+            <button
+              className="flex items-center gap-1 cursor-pointer font-medium text-gray-800 dark:text-gray-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none"
+              type="button"
+              onClick={() => {
+                setDesktopLangDropdown((v) => !v);
+                setDesktopHomeDropdown(false);
+                setDesktopServicesDropdown(false);
+              }}
+              aria-expanded={desktopLangDropdown}
+            >
+              {t("language")} <span className="ml-1">▾</span>
+            </button>
+            <ul
+              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-20 flex flex-col ${
+                desktopLangDropdown
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <button
+                onClick={() => {
+                  setLang("en");
+                  setDesktopLangDropdown(false);
+                }}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
+                  lang === "en" ? " font-bold" : ""
+                }`}
+              >
+                English
+              </button>
+              <button
+                onClick={() => {
+                  setLang("ar");
+                  setDesktopLangDropdown(false);
+                }}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
+                  lang === "ar" ? " font-bold" : ""
+                }`}
+              >
+                العربية
+              </button>
+              <button
+                onClick={() => {
+                  setLang("he");
+                  setDesktopLangDropdown(false);
+                }}
+                className={`px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left${
+                  lang === "he" ? " font-bold" : ""
+                }`}
+              >
+                עברית
+              </button>
+            </ul>
+          </div>
           {/* Theme Toggle (desktop only) */}
           <div className="  ">
             <ModeToggle />

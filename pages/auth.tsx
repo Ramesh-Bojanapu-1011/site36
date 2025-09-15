@@ -31,7 +31,7 @@ const AuthPage = () => {
     const registerTime = new Date().toISOString();
     localStorage.setItem(
       "user",
-      JSON.stringify({ lastname, firstName, email, password, registerTime })
+      JSON.stringify({ lastname, firstName, email, password, registerTime }),
     );
 
     setError("");
@@ -117,7 +117,7 @@ const AuthPage = () => {
                     const updatedUser = { ...user, password: newPassword };
                     localStorage.setItem("user", JSON.stringify(updatedUser));
                     setForgotSuccess(
-                      "Password reset successful! You can now login."
+                      "Password reset successful! You can now login.",
                     );
                     setError("");
                     setForgotEmail("");
@@ -239,7 +239,7 @@ const AuthPage = () => {
                 Login
               </button>
               <p className="mt-2 text-center text-">
-               Don't have an account?{" "}
+                Don't have an account?{" "}
                 <span
                   className="text-blue-700 dark:text-blue-300 cursor-pointer"
                   onClick={() => {

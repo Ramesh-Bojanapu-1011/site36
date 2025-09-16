@@ -591,12 +591,20 @@ const Headder = (props: Props) => {
             </button>
             {/* Dropdown */}
             <ul
-              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
+              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded   py-2 transition-opacity duration-150 z-30 flex flex-col ${
                 mobileProfileDropdown
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
               }`}
             >
+              {isAdmin && (
+                <Link
+                  href={"/admin-dashbord"}
+                  className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"
+                >
+                  Admin Dashboard
+                </Link>
+              )}
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"

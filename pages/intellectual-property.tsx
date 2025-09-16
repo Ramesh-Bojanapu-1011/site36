@@ -322,7 +322,7 @@ const IntellectualProperty = () => {
         </section>
 
         {/* Section 5: Our IP Process */}
-         
+
         <section className="bg-blue-50 dark:bg-gray-800 py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-14 text-center">

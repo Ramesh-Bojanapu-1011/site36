@@ -25,6 +25,7 @@ const Headder = (props: Props) => {
   const [desktopServicesDropdown, setDesktopServicesDropdown] =
     React.useState(false);
   const [desktopLangDropdown, setDesktopLangDropdown] = React.useState(false);
+  const [isAdmin, setIsAdmin] = React.useState(false);
   const [langDropdown, setLangDropdown] = React.useState(false);
   const langRef = React.useRef<HTMLLIElement>(null);
   const homeRef = React.useRef<HTMLLIElement>(null);
@@ -32,6 +33,11 @@ const Headder = (props: Props) => {
   const mobileMenuRef = React.useRef<HTMLDivElement>(null);
 
   const { lang, setLang, t } = useLang();
+
+  React.useEffect(() => {
+    const adminStatus = localStorage.getItem("isAdmin");
+    setIsAdmin(adminStatus === "true");
+  }, []);
 
   // Close dropdowns on outside click (desktop)
   React.useEffect(() => {
@@ -127,33 +133,33 @@ const Headder = (props: Props) => {
   // Logout handler
   const handleLogout = () => {
     if (user) {
+      localStorage.removeItem("isAdmin");
       const logoutTime = new Date().toISOString();
       const updatedUser: User = { ...user, logoutTime };
       localStorage.setItem("user", JSON.stringify(updatedUser));
       localStorage.removeItem("loggedInUser");
-      localStorage.removeItem("isAdmin");
+
       setDesktopProfileDropdown(false);
       setMobileProfileDropdown(false);
       setUser(null);
       window.location.replace("/auth");
     } else {
       window.location.replace("/auth");
+      localStorage.removeItem("isAdmin");
     }
   };
-
- 
 
   return (
     <header className="  bg-white dark:bg-gray-900 sticky top-0 z-50">
       <nav className="flex items-center  justify-between sm:px-6 lg:px-8 px-4 h-16">
         <div className="font-bold text-2xl text-blue-900 items-center flex dark:text-blue-200">
           <Link href={"/home1"} className="flex items-center">
-          <Image
-            src="/logo-stackly.png"
-            alt="LawFirmPro"
-            width={100}
-            height={100}
-          />
+            <Image
+              src="/logo-stackly.png"
+              alt="LawFirmPro"
+              width={100}
+              height={100}
+            />
           </Link>
         </div>
         {/* Hamburger for mobile */}
@@ -368,20 +374,20 @@ const Headder = (props: Props) => {
             <ul
               className={` absolute  ${
                 lang !== "en" ? "left-0" : "right-0"
-              }       mt-2 bg-white dark:bg-gray-800 text-nowrap shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
+              }       mt-2 bg-white dark:bg-gray-800 text-nowrap shadow-lg rounded  py-2 transition-opacity duration-150 z-30 flex flex-col  ${
                 desktopProfileDropdown
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
               }`}
             >
-              <li>
+              {isAdmin && (
                 <Link
-                  href="/admin-dashboard"
+                  href={"/admin-dashbord"}
                   className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"
                 >
-                  Go to Dashboard
+                  Admin Dashboard
                 </Link>
-              </li>
+              )}
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"

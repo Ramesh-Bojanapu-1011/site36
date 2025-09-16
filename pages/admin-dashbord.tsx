@@ -17,7 +17,8 @@ import Headder from "@/components/Headder";
 import { useLang } from "@/components/LangContext";
 
 type User = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   registerTime?: string;
@@ -69,6 +70,10 @@ const AdminDashboard = () => {
     { name: "Logged Users", value: loggedUsers.length },
     { name: "All Users", value: users.length },
   ];
+
+  console.log("Users:", users);
+  console.log("Logged Users:", loggedUsers);
+  console.log("Bar Data:", barData);
 
   return (
     <>
@@ -185,7 +190,7 @@ const AdminDashboard = () => {
                         {idx + 1}
                       </td>
                       <td className="py-2 px-2 sm:px-4 text-blue-700 dark:text-blue-300 font-semibold text-sm sm:text-base">
-                        {user.name}
+                        {user.firstName} {user.lastName}
                       </td>
                       <td className="py-2 px-2 sm:px-4 text-blue-700 dark:text-blue-300 text-sm sm:text-base">
                         {user.email}
@@ -216,7 +221,7 @@ const AdminDashboard = () => {
                   className="mb-2 p-3 rounded-lg bg-green-50 dark:bg-gray-800"
                 >
                   <span className="font-semibold text-green-700 dark:text-green-300 text-sm sm:text-base">
-                    {user.name}
+                    {user.firstName} {user.lastName}
                   </span>{" "}
                   <span className="text-sm sm:text-base">- {user.email}</span>
                 </li>

@@ -59,8 +59,8 @@ const home1 = (props: Props) => {
           <h2 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-16 text-center tracking-tight">
             {t("practice_areas")}
           </h2>
-          {/* Timeline/roadmap style */}
-          <div className="relative   ml-6 md:ml-0">
+          {/* Modern grid card layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
             {[
               {
                 title: t("corporate_law"),
@@ -92,42 +92,25 @@ const home1 = (props: Props) => {
                 desc: t("employment_law_desc"),
                 icon: <User />,
               },
-            ].map((area, idx) => (
+            ].map((area) => (
               <div
                 key={area.title}
-                className={`relative mb-12 flex flex-col md:flex-row items-start md:items-center ${
-                  idx % 2 === 1 ? "md:flex-row-reverse" : ""
-                }`}
+                className="relative rounded-3xl p-8 flex flex-col items-center text-center border-2 border-blue-100 dark:border-blue-800 shadow-2xl bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg hover:-translate-y-2 hover:shadow-blue-200/40 dark:hover:shadow-blue-900/40 transition-all duration-300 overflow-hidden"
               >
-                {/* Icon and line dot */}
-                <div className="absolute -left-8 md:static md:ml-0 flex-shrink-0 flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-blue-700 dark:bg-blue-900 flex items-center justify-center text-3xl text-white shadow-lg border-4 border-white dark:border-gray-900">
-                    {area.icon}
-                  </div>
+                {/* Decorative gradient background */}
+                <div className="absolute inset-0 z-0 rounded-3xl bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 dark:from-blue-900 dark:via-gray-800 dark:to-blue-950 opacity-60 pointer-events-none" />
+                {/* Icon with layered effect */}
+                <div className="relative z-10 w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-700 via-blue-500 to-blue-300 dark:from-blue-900 dark:via-blue-700 dark:to-blue-400 text-4xl text-white shadow-lg border-4 border-white dark:border-gray-900 mb-6">
+                  <span className="drop-shadow-lg">{area.icon}</span>
                 </div>
-                <div
-                  className={`ml-8 md:ml-0 md:w-1/2 ${
-                    idx % 2 === 1 ? "md:pr-16 md:text-right" : "md:pl-16"
-                  }`}
-                >
-                  <h3 className="text-2xl font-bold text-blue-800 dark:text-blue-100 mb-2 tracking-tight">
-                    {area.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-justify text-base leading-relaxed">
-                    {area.desc}
-                  </p>
-                </div>
+                <h3 className="relative z-10 text-2xl font-extrabold text-blue-800 dark:text-blue-100 mb-2 tracking-tight drop-shadow">
+                  {area.title}
+                </h3>
+                <p className="relative z-10 text-gray-700 dark:text-gray-200 text-base leading-relaxed mb-2">
+                  {area.desc}
+                </p>
               </div>
             ))}
-            {/* Vertical line accent */}
-            <div
-              className="absolute hidden md:block left-0 top-0 w-2 h-full bg-gradient-to-b from-blue-200 dark:from-blue-900 to-transparent pointer-events-none"
-              style={{ zIndex: 0 }}
-            />
-            <div
-              className="absolute right-0 z-10 hidden md:block top-0 w-2 h-full bg-gradient-to-b from-blue-200 dark:from-blue-900 to-transparent pointer-events-none"
-              style={{ zIndex: 0 }}
-            />
           </div>
         </section>
 

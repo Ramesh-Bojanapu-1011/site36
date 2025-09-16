@@ -330,7 +330,7 @@ const IntellectualProperty = () => {
             </h2>
             <div className="flex flex-col sm:flex-row flex-wrap   justify-center items-center gap-8 md:gap-6">
               {/* Step 1 */}
-              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] h-[280px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -351,7 +351,7 @@ const IntellectualProperty = () => {
                 </p>
               </div>
               {/* Step 2 */}
-              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] h-[280px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -373,7 +373,7 @@ const IntellectualProperty = () => {
                 </p>
               </div>
               {/* Step 3 */}
-              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] h-[280px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -396,7 +396,7 @@ const IntellectualProperty = () => {
                 </p>
               </div>
               {/* Step 4 */}
-              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] h-[280px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

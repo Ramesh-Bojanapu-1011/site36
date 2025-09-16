@@ -224,7 +224,7 @@ const Headder = (props: Props) => {
               {t("services")} <span className="ml-1">▾</span>
             </button>
             <ul
-              className={`absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-48 py-2 transition-opacity duration-150 z-20 flex flex-col ${
+              className={`absolute  left-0 top-full mt-2 bg-white dark:bg-gray-800 shadow-lg rounded   py-2 transition-opacity duration-150 z-20 flex flex-col ${
                 desktopServicesDropdown
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"

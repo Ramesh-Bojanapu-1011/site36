@@ -46,7 +46,7 @@ const FamilyLaw = () => {
               className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-blue-100 dark:bg-blue-800 rounded-full -z-10"
               style={{ transform: "translateY(-50%)" }}
             />
-            <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
+            <div className="flex justify-center   flex-wrap flex-row items-center  gap-12">
               {[
                 {
                   icon: (
@@ -156,8 +156,8 @@ const FamilyLaw = () => {
                 },
               ].map((item, idx) => (
                 <div
-                  key={item.title}
-                  className="relative flex flex-col items-center text-center md:w-1/6 group"
+                  key={idx}
+                  className="relative shadow-sm flex flex-col items-center text-center  md:w-[300px] group "
                 >
                   <div className="w-20 h-20 flex items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4 group-hover:scale-110 transition-transform">
                     {item.icon}
@@ -325,9 +325,9 @@ const FamilyLaw = () => {
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-14 text-center">
               {t("familyLaw.processTitle")}
             </h2>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-6">
+            <div className="flex flex-col sm:flex-row flex-wrap   justify-center items-center gap-8 md:gap-6">
               {/* Step 1 */}
-              <div className="flex-1 min-w-[220px] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -348,7 +348,7 @@ const FamilyLaw = () => {
                 </p>
               </div>
               {/* Step 2 */}
-              <div className="flex-1 min-w-[220px] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -370,7 +370,7 @@ const FamilyLaw = () => {
                 </p>
               </div>
               {/* Step 3 */}
-              <div className="flex-1 min-w-[220px] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -393,7 +393,7 @@ const FamilyLaw = () => {
                 </p>
               </div>
               {/* Step 4 */}
-              <div className="flex-1 min-w-[220px] bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="flex-1 min-w-[220px] max-w-xs bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border-2 border-blue-200 dark:border-blue-800 relative hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-blue-200 dark:border-blue-800 shadow-lg mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

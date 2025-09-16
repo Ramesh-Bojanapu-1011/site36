@@ -128,7 +128,7 @@ const AboutUs = () => {
           <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-200 mb-8 text-center">
             {t("meet_our_team")}
           </h2>
-          <div className="flex gap-8   pb-4 md:justify-center scrollbar-thin scrollbar-thumb-blue-200 dark:scrollbar-thumb-blue-900">
+          <div className="flex flex-wrap gap-8 pb-4 justify-center  ">
             {[
               {
                 name: t("team_jessica_name"),
@@ -161,7 +161,7 @@ const AboutUs = () => {
             ].map((member) => (
               <div
                 key={member.name}
-                className="min-w-[270px] bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border border-blue-100 dark:border-blue-900 hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+                className="w-[300px] bg-gradient-to-br from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950 rounded-2xl shadow-lg p-8 flex flex-col items-center text-center border border-blue-100 dark:border-blue-900 hover:scale-105 hover:shadow-2xl transition-transform duration-300"
               >
                 {member.avatar ? (
                   <Image

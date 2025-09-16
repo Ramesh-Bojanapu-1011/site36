@@ -168,16 +168,6 @@ const FamilyLaw = () => {
                   <p className="text-gray-600 dark:text-gray-300 text-sm">
                     {item.desc}
                   </p>
-                  {idx < 5 && (
-                    <div
-                      className="hidden md:block absolute right-0 top-1/2 w-full h-1 bg-blue-200 dark:bg-blue-800 -z-10"
-                      style={{
-                        left: "100%",
-                        width: "calc(100% + 2rem)",
-                        transform: "translateY(-50%)",
-                      }}
-                    />
-                  )}
                 </div>
               ))}
             </div>

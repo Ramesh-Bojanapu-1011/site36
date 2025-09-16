@@ -44,7 +44,6 @@ const services = (props: Props) => {
             loop
             muted
             playsInline
-            poster="/law-hero-poster.jpg"
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
@@ -74,7 +73,7 @@ const services = (props: Props) => {
                 name: t("litigation"),
                 desc: t("services_litigation_desc"),
                 icon: <Scale size={40} />,
-                href: "/litigation-dispute",
+                href: "/litigation-dispute-resolution",
               },
               {
                 name: t("family_law"),

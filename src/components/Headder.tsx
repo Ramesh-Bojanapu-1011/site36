@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import { useLang } from "./LangContext";
 import { ModeToggle } from "./theme/ModeToggle";
 import { MenuIcon, X as XIcon } from "lucide-react";
@@ -141,22 +141,24 @@ const Headder = (props: Props) => {
     }
   };
 
-  console.log("User", user);
+ 
 
   return (
     <header className="  bg-white dark:bg-gray-900 sticky top-0 z-50">
       <nav className="flex items-center  justify-between sm:px-6 lg:px-8 px-4 h-16">
         <div className="font-bold text-2xl text-blue-900 items-center flex dark:text-blue-200">
+          <Link href={"/home1"} className="flex items-center">
           <Image
             src="/logo-stackly.png"
             alt="LawFirmPro"
             width={100}
             height={100}
           />
+          </Link>
         </div>
         {/* Hamburger for mobile */}
         <button
-          className="md:hidden flex justify-end items-center focus:outline-none"
+          className="min-[769px]:hidden flex justify-end items-center focus:outline-none"
           onClick={() => setMobileMenuOpen((v) => !v)}
           title={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -164,7 +166,7 @@ const Headder = (props: Props) => {
           {mobileMenuOpen ? <XIcon /> : <MenuIcon />}
         </button>
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 items-center list-none m-0 p-0">
+        <ul className="hidden min-[769px]:flex text-nowrap gap-8 items-center list-none m-0 p-0">
           {/* Home with dropdown (click only) */}
           <li className="relative" ref={homeRef}>
             <button
@@ -291,7 +293,7 @@ const Headder = (props: Props) => {
             </Link>
           </li>
         </ul>
-        <div className="hidden md:flex gap-3 items-center">
+        <div className="hidden min-[769px]:flex gap-3 items-center">
           {/* Language Dropdown (desktop) */}
           <div className="relative">
             <button
@@ -355,23 +357,31 @@ const Headder = (props: Props) => {
           {/* Profile Avatar with Dropdown (desktop only) */}
           <div className="ml-4 relative" ref={desktopProfileRef}>
             <button
-              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 focus:outline-none hover:ring-2 hover:ring-blue-400 dark:hover:ring-blue-300 transition"
+              className="hidden min-[769px]:flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 focus:outline-none hover:ring-2 hover:ring-blue-400 dark:hover:ring-blue-300 transition"
               aria-label="Profile"
               onClick={() => setDesktopProfileDropdown((v) => !v)}
             >
-              {user?.firstName ? user.firstName[0].toUpperCase() : ""}
-              {user?.lastname ? user.lastname[0].toUpperCase() : ""}
+              {user?.firstName ? user.firstName[0].toUpperCase() : "A"}
+              {user?.lastname ? user.lastname[0].toUpperCase() : "D"}
             </button>
             {/* Dropdown */}
             <ul
               className={` absolute  ${
                 lang !== "en" ? "left-0" : "right-0"
-              }       mt-2 bg-white dark:bg-gray-800 shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
+              }       mt-2 bg-white dark:bg-gray-800 text-nowrap shadow-lg rounded w-32 py-2 transition-opacity duration-150 z-30 flex flex-col ${
                 desktopProfileDropdown
                   ? "opacity-100 pointer-events-auto"
                   : "opacity-0 pointer-events-none"
               }`}
             >
+              <li>
+                <Link
+                  href="/admin-dashboard"
+                  className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"
+                >
+                  Go to Dashboard
+                </Link>
+              </li>
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer dark:text-gray-100 text-left w-full"
@@ -385,7 +395,7 @@ const Headder = (props: Props) => {
       {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
-        className={`md:hidden absolute w-full bg-white dark:bg-gray-900 shadow transition-all duration-200 ${
+        className={`min-[769px]:hidden absolute w-full bg-white dark:bg-gray-900 shadow transition-all duration-200 ${
           mobileMenuOpen ? "max-h-[600px] py-2" : "max-h-0 overflow-hidden py-0"
         }`}
       >
@@ -497,6 +507,13 @@ const Headder = (props: Props) => {
             {servicesDropdown && (
               <ul className="pl-4 flex flex-col">
                 <Link
+                  href={"/services"}
+                  className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
+                >
+                  {t("all_services")}
+                </Link>
+
+                <Link
                   href={"/corporate-law"}
                   className="py-2 cursor-pointer hover:text-blue-900 dark:hover:text-blue-300 dark:text-gray-100"
                 >
@@ -555,7 +572,7 @@ const Headder = (props: Props) => {
           </li>
         </ul>
         {/* Mobile Theme Toggle and Profile */}
-        <div className="flex  items-center gap-3 mt-4 md:hidden">
+        <div className="flex  items-center gap-3 mt-4 min-[769px]:hidden">
           {/* Profile Avatar with Dropdown (mobile) */}
           <div className="relative" ref={mobileProfileRef}>
             <button
@@ -563,8 +580,8 @@ const Headder = (props: Props) => {
               aria-label="Profile"
               onClick={() => setMobileProfileDropdown((v) => !v)}
             >
-              {user?.firstName ? user.firstName[0].toUpperCase() : ""}
-              {user?.lastname ? user.lastname[0].toUpperCase() : ""}
+              {user?.firstName ? user.firstName[0].toUpperCase() : "A"}
+              {user?.lastname ? user.lastname[0].toUpperCase() : "D"}
             </button>
             {/* Dropdown */}
             <ul

@@ -24,7 +24,6 @@ const RealEstateLaw = () => {
             loop
             muted
             playsInline
-            poster="/real-estate-hero-poster.jpg"
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 text-center text-white px-4">
@@ -169,16 +168,6 @@ const RealEstateLaw = () => {
                   <p className="text-gray-600 dark:text-gray-300 text-sm">
                     {item.desc}
                   </p>
-                  {idx < 5 && (
-                    <div
-                      className="hidden md:block absolute right-0 top-1/2 w-full h-1 bg-blue-200 dark:bg-blue-800 -z-10"
-                      style={{
-                        left: "100%",
-                        width: "calc(100% + 2rem)",
-                        transform: "translateY(-50%)",
-                      }}
-                    />
-                  )}
                 </div>
               ))}
             </div>

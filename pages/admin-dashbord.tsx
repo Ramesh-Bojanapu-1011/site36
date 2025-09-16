@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-const PieChart = dynamic(() => import("recharts").then((mod) => mod.PieChart), {
-  ssr: false,
-});
-const Pie = dynamic(() => import("recharts").then((mod) => mod.Pie), {
-  ssr: false,
-});
-const Cell = dynamic(() => import("recharts").then((mod) => mod.Cell), {
-  ssr: false,
-});
+
 import {
+  PieChart,
+  Pie,
+  Cell,
   Legend,
   Tooltip,
   BarChart,
@@ -17,6 +11,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 import Headder from "@/components/Headder";
 import { useLang } from "@/components/LangContext";
@@ -78,82 +73,94 @@ const AdminDashboard = () => {
   return (
     <>
       <Headder />
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-950 dark:to-blue-950 p-10">
-        <h1 className="text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-10 text-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-950 dark:to-blue-950 p-4 sm:p-6 md:p-10">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-blue-900 dark:text-blue-200 mb-6 sm:mb-8 text-center">
           {t("adminDashboard.title")}
         </h1>
-        <div className="flex flex-col md:flex-row gap-12 items-start justify-center">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center lg:items-start justify-center">
           {/* Pie Chart Section */}
-          <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border-2 border-blue-100 dark:border-blue-800 flex flex-col items-center mb-10">
-            <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
+          <div className="w-full lg:w-1/2 xl:w-1/3 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 sm:p-8 border-2 border-blue-100 dark:border-blue-800 flex flex-col items-center mb-6 lg:mb-0">
+            <h2 className="text-xl sm:text-2xl font-bold text-blue-900 dark:text-blue-200 mb-4 sm:mb-6 text-center">
               {t("adminDashboard.userOverview")}
             </h2>
-            <div className="w-[320px] h-[320px] flex items-center justify-center">
-              <PieChart width={320} height={320}>
-                <Pie
-                  data={pieData}
-                  cx={160}
-                  cy={160}
-                  innerRadius={70}
-                  outerRadius={120}
-                  fill="#8884d8"
-                  paddingAngle={5}
-                  dataKey="value"
-                  label
-                >
-                  {pieData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-                <Legend />
-                <Tooltip />
-              </PieChart>
+            <div className="w-full h-[320px] flex items-center justify-center">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={pieData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    dataKey="value"
+                    label
+                  >
+                    {pieData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend
+                    wrapperStyle={{
+                      fontWeight: "bold",
+                      fontSize: "1rem",
+                    }}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
             </div>
           </div>
           {/* Bar Chart Section */}
-          <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border-2 border-blue-100 dark:border-blue-800 flex flex-col items-center mb-10">
-            <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
+          <div className="w-full lg:w-1/2 xl:w-2/3 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 sm:p-8 border-2 border-blue-100 dark:border-blue-800 flex flex-col items-center mb-6 lg:mb-0">
+            <h2 className="text-xl sm:text-2xl font-bold text-blue-900 dark:text-blue-200 mb-4 sm:mb-6 text-center">
               {t("adminDashboard.bar.title")}
             </h2>
-            <div className="w-[400px] h-[320px] flex items-center justify-center">
-              <BarChart
-                width={400}
-                height={320}
-                data={barData}
-                margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis allowDecimals={false} />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="count" fill="#0088FE" name="Registered Users" />
-              </BarChart>
+            <div className="w-full h-[320px] flex items-center justify-center">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={barData}
+                  margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date" />
+                  <YAxis allowDecimals={false} />
+                  <Tooltip />
+                  <Legend
+                    wrapperStyle={{
+                      fontWeight: "bold",
+                      fontSize: "1rem",
+                    }}
+                  />
+                  <Bar dataKey="count" fill="#0088FE" name="Registered Users" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>
         {/* User Lists Section */}
-        <div className="flex-1 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border-2 border-blue-100 dark:border-blue-800">
-          <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
+        <div className="mt-8 lg:mt-12 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 sm:p-8 border-2 border-blue-100 dark:border-blue-800">
+          <h2 className="text-xl sm:text-2xl font-bold text-blue-900 dark:text-blue-200 mb-4 sm:mb-6">
             {t("adminDashboard.table.allUsers")}
           </h2>
-          <div className="overflow-x-auto mb-8">
+          <div className="overflow-x-auto mb-6 sm:mb-8">
             <table className="min-w-full bg-white dark:bg-gray-900 border border-blue-100 dark:border-blue-800 rounded-lg shadow">
               <thead>
                 <tr className="bg-blue-100 dark:bg-gray-800">
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                  <th className="py-3 px-2 sm:px-4 text-left font-semibold text-blue-900 dark:text-blue-200 text-sm sm:text-base">
                     {t("adminDashboard.table.th.number")}
                   </th>
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                  <th className="py-3 px-2 sm:px-4 text-left font-semibold text-blue-900 dark:text-blue-200 text-sm sm:text-base">
                     {t("adminDashboard.table.th.name")}
                   </th>
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                  <th className="py-3 px-2 sm:px-4 text-left font-semibold text-blue-900 dark:text-blue-200 text-sm sm:text-base">
                     {t("adminDashboard.table.th.email")}
                   </th>
-                  <th className="py-3 px-4 text-left font-semibold text-blue-900 dark:text-blue-200">
+                  <th className="py-3 px-2 sm:px-4 text-left font-semibold text-blue-900 dark:text-blue-200 text-sm sm:text-base">
                     {t("adminDashboard.table.th.registerTime")}
                   </th>
                 </tr>
@@ -163,7 +170,7 @@ const AdminDashboard = () => {
                   <tr>
                     <td
                       colSpan={4}
-                      className="py-4 px-4 text-gray-500 text-center"
+                      className="py-4 px-4 text-gray-500 text-center text-sm sm:text-base"
                     >
                       No users registered.
                     </td>
@@ -174,16 +181,16 @@ const AdminDashboard = () => {
                       key={idx}
                       className="border-t border-blue-100 dark:border-gray-800"
                     >
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">
+                      <td className="py-2 px-2 sm:px-4 text-blue-700 dark:text-blue-300 text-sm sm:text-base">
                         {idx + 1}
                       </td>
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300 font-semibold">
+                      <td className="py-2 px-2 sm:px-4 text-blue-700 dark:text-blue-300 font-semibold text-sm sm:text-base">
                         {user.name}
                       </td>
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">
+                      <td className="py-2 px-2 sm:px-4 text-blue-700 dark:text-blue-300 text-sm sm:text-base">
                         {user.email}
                       </td>
-                      <td className="py-2 px-4 text-blue-700 dark:text-blue-300">
+                      <td className="py-2 px-2 sm:px-4 text-blue-700 dark:text-blue-300 text-sm sm:text-base">
                         {user.registerTime
                           ? new Date(user.registerTime).toLocaleString()
                           : "-"}
@@ -194,22 +201,24 @@ const AdminDashboard = () => {
               </tbody>
             </table>
           </div>
-          <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-blue-900 dark:text-blue-200 mb-4 sm:mb-6">
             {t("adminDashboard.table.loggedInUsers")}
           </h2>
           <ul>
             {loggedUsers.length === 0 ? (
-              <li className="text-gray-500">No users logged in.</li>
+              <li className="text-gray-500 text-sm sm:text-base">
+                No users logged in.
+              </li>
             ) : (
               loggedUsers.map((user, idx) => (
                 <li
                   key={idx}
-                  className="mb-2 p-2 rounded bg-green-50 dark:bg-gray-800"
+                  className="mb-2 p-3 rounded-lg bg-green-50 dark:bg-gray-800"
                 >
-                  <span className="font-semibold text-green-700 dark:text-green-300">
+                  <span className="font-semibold text-green-700 dark:text-green-300 text-sm sm:text-base">
                     {user.name}
                   </span>{" "}
-                  - {user.email}
+                  <span className="text-sm sm:text-base">- {user.email}</span>
                 </li>
               ))
             )}

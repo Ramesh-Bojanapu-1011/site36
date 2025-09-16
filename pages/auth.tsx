@@ -258,7 +258,7 @@ const AuthPage = () => {
               <Image
                 src="https://i.pinimg.com/1200x/92/f2/98/92f2984ebd391d7e8c17a1e3cd673e46.jpg"
                 alt="Admin Register"
-                className=""
+                className=" w-full h-full object-cover  "
                 width={500}
                 height={500}
               />
